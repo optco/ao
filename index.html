@@ -14,7 +14,167 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
     <link rel="manifest" href="favicons/site.webmanifest">
-    
+     <style>
+        :root {
+            --primary: #2563eb;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-gradient: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            scrollbar-width: thin;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tabs::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .tabs::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            background: rgba(255, 255, 255, 0.5);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border-radius: 8px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .app-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .app-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .mainstream {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .opensource {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .description {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        .note {
+            background: rgba(37, 99, 235, 0.08);
+            border-left: 3px solid var(--primary);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        @media (min-width: 600px) {
+            .app-row {
+                flex-direction: row;
+                align-items: baseline;
+                gap: 12px;
+            }
+            .mainstream::after {
+                content: ":";
+            }
+        }
+    </style>
     
 </head>
 <body>
@@ -23,7 +183,393 @@
     <main class="glass-panel">
         <img src="ao.png" class="fixed-center-img" alt="AO"><br>
         <p class="tagline"></p>
-        
+        <div class="container">
+    <h1>Open Source Alternatives</h1>
+    <p class="subtitle">Free, privacy respecting replacements for mainstream apps. No ads, no tracking.</p>
+
+    <div class="tabs" id="tabContainer">
+        <button class="tab-btn active" data-tab="office">Office & Productivity</button>
+        <button class="tab-btn" data-tab="creative">Creative & Design</button>
+        <button class="tab-btn" data-tab="photo">Photography & Video</button>
+        <button class="tab-btn" data-tab="media">Media & Entertainment</button>
+        <button class="tab-btn" data-tab="comm">Communication</button>
+        <button class="tab-btn" data-tab="utilities">Utilities & Security</button>
+        <button class="tab-btn" data-tab="browser">Web Browsing</button>
+        <button class="tab-btn" data-tab="finance">Finance</button>
+        <button class="tab-btn" data-tab="travel">Travel & Navigation</button>
+        <button class="tab-btn" data-tab="cloud">Cloud & Storage</button>
+        <button class="tab-btn" data-tab="reading">Reading & Podcasts</button>
+        <button class="tab-btn" data-tab="dev">Developer Tools</button>
+        <button class="tab-btn" data-tab="health">Health & Fitness</button>
+    </div>
+
+    <div id="contentContainer">
+
+        <!-- OFFICE & PRODUCTIVITY -->
+        <div class="tab-content active" id="office">
+            <div class="app-card">
+                <h3>Office Suite</h3>
+                <div class="app-row">
+                    <span class="mainstream">Microsoft Office / Google Workspace</span>
+                    <span class="opensource">LibreOffice</span>
+                </div>
+                <p class="description">A completely free offline office suite with Writer, Calc, and Impress. Highly compatible with Microsoft formats.</p>
+            </div>
+            <div class="app-card">
+                <h3>Modern Office Suite</h3>
+                <div class="app-row">
+                    <span class="mainstream">Microsoft 365</span>
+                    <span class="opensource">OnlyOffice</span>
+                </div>
+                <p class="description">A cleaner, more modern interface with excellent compatibility for DOCX, XLSX, and PPTX files. Can be self hosted.</p>
+            </div>
+            <div class="app-card">
+                <h3>Note Taking</h3>
+                <div class="app-row">
+                    <span class="mainstream">Notion / Evernote</span>
+                    <span class="opensource">Obsidian / AppFlowy</span>
+                </div>
+                <p class="description">Obsidian for local markdown note taking. AppFlowy for databases and kanban boards.</p>
+            </div>
+            <div class="app-card">
+                <h3>Task & Time Management</h3>
+                <div class="app-row">
+                    <span class="mainstream">Todoist / Toggl</span>
+                    <span class="opensource">Super Productivity</span>
+                </div>
+                <p class="description">An open source task manager and time tracker with Jira and GitHub integration.</p>
+            </div>
+            <div class="app-card">
+                <h3>Automation</h3>
+                <div class="app-row">
+                    <span class="mainstream">Zapier / IFTTT</span>
+                    <span class="opensource">Huginn / n8n</span>
+                </div>
+                <p class="description">Run automated workflows on your own terms without vendor lock in.</p>
+            </div>
+        </div>
+
+        <!-- CREATIVE & DESIGN -->
+        <div class="tab-content" id="creative">
+            <div class="app-card">
+                <h3>Image Editing</h3>
+                <div class="app-row">
+                    <span class="mainstream">Adobe Photoshop</span>
+                    <span class="opensource">GIMP</span>
+                </div>
+                <p class="description">A long standing free image editor. Recent updates added non destructive layers and improved format compatibility.</p>
+            </div>
+            <div class="app-card">
+                <h3>Digital Painting</h3>
+                <div class="app-row">
+                    <span class="mainstream">Adobe Photoshop / Corel Painter</span>
+                    <span class="opensource">Krita</span>
+                </div>
+                <p class="description">The best free option for digital painting, illustration, and concept art with an excellent brush engine.</p>
+            </div>
+            <div class="app-card">
+                <h3>Vector Graphics</h3>
+                <div class="app-row">
+                    <span class="mainstream">Adobe Illustrator</span>
+                    <span class="opensource">Inkscape</span>
+                </div>
+                <p class="description">A free vector graphics editor for creating logos, illustrations, and scalable designs.</p>
+            </div>
+            <div class="app-card">
+                <h3>UI/UX Design</h3>
+                <div class="app-row">
+                    <span class="mainstream">Figma</span>
+                    <span class="opensource">Penpot</span>
+                </div>
+                <p class="description">An open source design and prototyping platform built on open web standards.</p>
+            </div>
+        </div>
+
+        <!-- PHOTOGRAPHY & VIDEO -->
+        <div class="tab-content" id="photo">
+            <div class="app-card">
+                <h3>Photo Management</h3>
+                <div class="app-row">
+                    <span class="mainstream">Google Photos</span>
+                    <span class="opensource">PhotoPrism / Ente Photos</span>
+                </div>
+                <p class="description">PhotoPrism for private, self hosted photo management with AI tagging. Ente Photos for end to end encrypted cloud storage.</p>
+            </div>
+            <div class="app-card">
+                <h3>Raw Processing</h3>
+                <div class="app-row">
+                    <span class="mainstream">Adobe Lightroom</span>
+                    <span class="opensource">Darktable / RawTherapee</span>
+                </div>
+                <p class="description">Professional grade raw image processing and library management.</p>
+            </div>
+            <div class="app-card">
+                <h3>Video Editing</h3>
+                <div class="app-row">
+                    <span class="mainstream">Adobe Premiere Pro</span>
+                    <span class="opensource">Kdenlive / DaVinci Resolve</span>
+                </div>
+                <p class="description">Kdenlive is fully open source. DaVinci Resolve is proprietary but offers a powerful free tier for editing and color grading.</p>
+            </div>
+        </div>
+
+        <!-- MEDIA & ENTERTAINMENT -->
+        <div class="tab-content" id="media">
+            <div class="app-card">
+                <h3>Video Streaming</h3>
+                <div class="app-row">
+                    <span class="mainstream">YouTube Premium</span>
+                    <span class="opensource">NewPipe / Grayjay</span>
+                </div>
+                <p class="description">Watch videos ad free, play background audio, and download clips without a Google account.</p>
+            </div>
+            <div class="app-card">
+                <h3>Media Player</h3>
+                <div class="app-row">
+                    <span class="mainstream">Proprietary Players</span>
+                    <span class="opensource">VLC Media Player</span>
+                </div>
+                <p class="description">A trusted, open source tool that plays any audio or video format without tracking you.</p>
+            </div>
+            <div class="app-card">
+                <h3>Music Streaming (Self Hosted)</h3>
+                <div class="app-row">
+                    <span class="mainstream">Spotify / Apple Music</span>
+                    <span class="opensource">Navidrome / Funkwhale</span>
+                </div>
+                <p class="description">Self hosted music servers that let you stream your personal collection to any device. Use clients like Feishin for playback.</p>
+            </div>
+        </div>
+
+        <!-- COMMUNICATION -->
+        <div class="tab-content" id="comm">
+            <div class="app-card">
+                <h3>Messaging</h3>
+                <div class="app-row">
+                    <span class="mainstream">WhatsApp</span>
+                    <span class="opensource">Signal</span>
+                </div>
+                <p class="description">The gold standard for end to end encrypted messaging and voice calls with minimal metadata collection.</p>
+            </div>
+            <div class="app-card">
+                <h3>Maximum Privacy Messaging</h3>
+                <div class="app-row">
+                    <span class="mainstream">WhatsApp / Telegram</span>
+                    <span class="opensource">SimpleX</span>
+                </div>
+                <p class="description">Uses a decentralized architecture that requires no personal identifiers, not even a phone number. The invite link system can be cumbersome.</p>
+            </div>
+            <div class="app-card">
+                <h3>Email Client</h3>
+                <div class="app-row">
+                    <span class="mainstream">Gmail / Outlook (desktop)</span>
+                    <span class="opensource">Thunderbird</span>
+                </div>
+                <p class="description">A powerful, ad free desktop email client that works with any provider and includes a built in calendar.</p>
+            </div>
+            <div class="app-card">
+                <h3>Video Conferencing</h3>
+                <div class="app-row">
+                    <span class="mainstream">Zoom / Microsoft Teams</span>
+                    <span class="opensource">Jitsi Meet</span>
+                </div>
+                <p class="description">Browser based, encrypted video conferencing that requires no account creation or software installation.</p>
+            </div>
+        </div>
+
+        <!-- UTILITIES & SECURITY -->
+        <div class="tab-content" id="utilities">
+            <div class="app-card">
+                <h3>Password Management</h3>
+                <div class="app-row">
+                    <span class="mainstream">1Password / LastPass</span>
+                    <span class="opensource">Bitwarden / KeePassXC</span>
+                </div>
+                <p class="description">Free, secure, and open source password management across all your devices.</p>
+            </div>
+            <div class="app-card">
+                <h3>Two Factor Authentication</h3>
+                <div class="app-row">
+                    <span class="mainstream">Google Authenticator</span>
+                    <span class="opensource">Aegis Authenticator</span>
+                </div>
+                <p class="description">A secure, encrypted alternative for managing 2FA codes. Supports biometric unlock and encrypted backups.</p>
+            </div>
+            <div class="app-card">
+                <h3>App Store Client</h3>
+                <div class="app-row">
+                    <span class="mainstream">Google Play Store</span>
+                    <span class="opensource">Aurora Store</span>
+                </div>
+                <p class="description">An open source client that lets you download apps from the Play Store anonymously.</p>
+            </div>
+            <div class="app-card">
+                <h3>File Manager</h3>
+                <div class="app-row">
+                    <span class="mainstream">Paid Android File Managers</span>
+                    <span class="opensource">Fossify File Manager</span>
+                </div>
+                <p class="description">A lightweight, ad free file manager focused on speed and simplicity without unnecessary permissions.</p>
+            </div>
+            <div class="app-card">
+                <h3>Remote Desktop</h3>
+                <div class="app-row">
+                    <span class="mainstream">TeamViewer</span>
+                    <span class="opensource">RustDesk</span>
+                </div>
+                <p class="description">Free, fast, and secure remote desktop access you can self host.</p>
+            </div>
+            <div class="app-card">
+                <h3>PDF Editing</h3>
+                <div class="app-row">
+                    <span class="mainstream">Adobe Acrobat</span>
+                    <span class="opensource">Okular / PDF Arranger</span>
+                </div>
+                <p class="description">View, annotate, and edit PDFs without subscription fees or telemetry.</p>
+            </div>
+        </div>
+
+        <!-- WEB BROWSING -->
+        <div class="tab-content" id="browser">
+            <div class="app-card">
+                <h3>Web Browser</h3>
+                <div class="app-row">
+                    <span class="mainstream">Google Chrome</span>
+                    <span class="opensource">Firefox / Brave</span>
+                </div>
+                <p class="description">Prevents cross site tracking and does not feed your browsing history into an advertising ecosystem.</p>
+            </div>
+        </div>
+
+        <!-- FINANCE -->
+        <div class="tab-content" id="finance">
+            <div class="app-card">
+                <h3>Budgeting</h3>
+                <div class="app-row">
+                    <span class="mainstream">Mint / YNAB</span>
+                    <span class="opensource">Actual Budget / Firefly III</span>
+                </div>
+                <p class="description">Local first and open source, allowing you to track household income and expenses without selling your financial data.</p>
+            </div>
+            <div class="app-card">
+                <h3>Portfolio Tracking</h3>
+                <div class="app-row">
+                    <span class="mainstream">Mainstream Aggregators</span>
+                    <span class="opensource">Ghostfolio</span>
+                </div>
+                <p class="description">Open source wealth management software to track investments without handing over credentials to third parties.</p>
+            </div>
+        </div>
+
+        <!-- TRAVEL & NAVIGATION -->
+        <div class="tab-content" id="travel">
+            <div class="app-card">
+                <h3>Navigation</h3>
+                <div class="app-row">
+                    <span class="mainstream">Google Maps</span>
+                    <span class="opensource">Organic Maps / OsmAnd</span>
+                </div>
+                <p class="description">Built on OpenStreetMap data with fully offline routing and no location tracking. Ideal for hiking and road trips. Lacks real time traffic data.</p>
+            </div>
+        </div>
+
+        <!-- CLOUD & STORAGE -->
+        <div class="tab-content" id="cloud">
+            <div class="app-card">
+                <h3>Cloud Storage</h3>
+                <div class="app-row">
+                    <span class="mainstream">Google Drive / Dropbox</span>
+                    <span class="opensource">Nextcloud</span>
+                </div>
+                <p class="description">A self hosted cloud storage solution that gives you full control over your files, contacts, calendars, and more.</p>
+            </div>
+            <div class="app-card">
+                <h3>File Sync</h3>
+                <div class="app-row">
+                    <span class="mainstream">Google Drive / Dropbox</span>
+                    <span class="opensource">Syncthing</span>
+                </div>
+                <p class="description">Continuous peer to peer file synchronization. Data syncs directly between your devices without touching a third party server.</p>
+            </div>
+        </div>
+
+        <!-- READING & PODCASTS -->
+        <div class="tab-content" id="reading">
+            <div class="app-card">
+                <h3>Article Saving</h3>
+                <div class="app-row">
+                    <span class="mainstream">Pocket</span>
+                    <span class="opensource">Wallabag</span>
+                </div>
+                <p class="description">Self hosted article archiving and reading list management.</p>
+            </div>
+            <div class="app-card">
+                <h3>Podcasts</h3>
+                <div class="app-row">
+                    <span class="mainstream">Spotify / Proprietary Apps</span>
+                    <span class="opensource">AntennaPod</span>
+                </div>
+                <p class="description">A completely free, open source podcast player for Android. Supports any RSS feed, offline downloads, and has no algorithmic interference or ads.</p>
+            </div>
+        </div>
+
+        <!-- DEVELOPER TOOLS -->
+        <div class="tab-content" id="dev">
+            <div class="app-card">
+                <h3>Code Hosting</h3>
+                <div class="app-row">
+                    <span class="mainstream">GitHub</span>
+                    <span class="opensource">Forgejo / Gitea</span>
+                </div>
+                <p class="description">Lightweight, self hosted Git services that give you full control over your repositories.</p>
+            </div>
+            <div class="app-card">
+                <h3>Code Editor</h3>
+                <div class="app-row">
+                    <span class="mainstream">Visual Studio Code</span>
+                    <span class="opensource">VSCodium</span>
+                </div>
+                <p class="description">A telemetry free, open source build of the VS Code editor.</p>
+            </div>
+        </div>
+
+        <!-- HEALTH & FITNESS -->
+        <div class="tab-content" id="health">
+            <div class="app-card">
+                <h3>Activity Tracking</h3>
+                <div class="app-row">
+                    <span class="mainstream">Strava</span>
+                    <span class="opensource">OpenTracks</span>
+                </div>
+                <p class="description">GPS activity tracking for Android that stores data locally and exports to standard formats.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="note">
+        Most of these apps are available through F-Droid (an open source app store) or directly from the developers' websites. The main trade offs are usually a less polished interface or the need to host the software yourself.
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetId = tab.getAttribute('data-tab');
+
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    });
+</script>
         <!-- ==================== REDIRECT SECTION START ==================== -->
       <!--  <div class="redirect-info">
             <p>Taking you to a property agent in <span id="countdown">10</span> seconds...</p>
