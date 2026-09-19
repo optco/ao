@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-adsense-account" content="ca-pub-7287344098210114">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>alternate option</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -248,7 +249,7 @@
         }
 
         .modal-glass {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.6);
             border-radius: 16px;
@@ -298,6 +299,20 @@
             color: var(--text-muted);
             margin-bottom: 24px;
             font-size: 0.95rem;
+        }
+
+        .ad-container {
+            width: 100%;
+            min-height: 250px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 1px dashed #cbd5e1;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         .form-group {
@@ -354,7 +369,7 @@
 
         .notify-btn {
             position: fixed;
-            bottom: 34px;
+            bottom: 24px;
             right: 24px;
             padding: 12px 24px;
             background: var(--primary);
@@ -394,8 +409,7 @@
         <img src="ao.png" class="fixed-center-img" alt="AO Logo">
         <p class="tagline">Free, privacy respecting replacements for mainstream apps. No ads, no tracking.</p>
         
-      
-
+       
         <div class="category-selector">
             <label for="categorySelect" class="sr-only">Select Category</label>
             <select id="categorySelect" class="category-dropdown">
@@ -425,38 +439,6 @@
                     </div>
                     <p class="description">A completely free offline office suite with Writer, Calc, and Impress. Highly compatible with Microsoft formats.</p>
                 </div>
-                <div class="app-card">
-                    <h3>Modern Office Suite</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Microsoft 365</span>
-                        <a href="https://www.google.com/search?q=OnlyOffice+download" target="_blank" rel="noopener noreferrer" class="opensource">OnlyOffice</a>
-                    </div>
-                    <p class="description">A cleaner, more modern interface with excellent compatibility for DOCX, XLSX, and PPTX files. Can be self hosted.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Note Taking</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Notion / Evernote</span>
-                        <a href="https://www.google.com/search?q=Obsidian+download" target="_blank" rel="noopener noreferrer" class="opensource">Obsidian / AppFlowy</a>
-                    </div>
-                    <p class="description">Obsidian for local markdown note taking. AppFlowy for databases and kanban boards.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Task and Time Management</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Todoist / Toggl</span>
-                        <a href="https://www.google.com/search?q=Super+Productivity+download" target="_blank" rel="noopener noreferrer" class="opensource">Super Productivity</a>
-                    </div>
-                    <p class="description">An open source task manager and time tracker with Jira and GitHub integration.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Automation</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Zapier / IFTTT</span>
-                        <a href="https://www.google.com/search?q=Huginn+n8n+download" target="_blank" rel="noopener noreferrer" class="opensource">Huginn / n8n</a>
-                    </div>
-                    <p class="description">Run automated workflows on your own terms without vendor lock in.</p>
-                </div>
             </div>
 
             <div class="tab-content" id="creative">
@@ -467,30 +449,6 @@
                         <a href="https://www.google.com/search?q=GIMP+download" target="_blank" rel="noopener noreferrer" class="opensource">GIMP</a>
                     </div>
                     <p class="description">A long standing free image editor. Recent updates added non destructive layers and improved format compatibility.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Digital Painting</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Adobe Photoshop / Corel Painter</span>
-                        <a href="https://www.google.com/search?q=Krita+download" target="_blank" rel="noopener noreferrer" class="opensource">Krita</a>
-                    </div>
-                    <p class="description">The best free option for digital painting, illustration, and concept art with an excellent brush engine.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Vector Graphics</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Adobe Illustrator</span>
-                        <a href="https://www.google.com/search?q=Inkscape+download" target="_blank" rel="noopener noreferrer" class="opensource">Inkscape</a>
-                    </div>
-                    <p class="description">A free vector graphics editor for creating logos, illustrations, and scalable designs.</p>
-                </div>
-                <div class="app-card">
-                    <h3>UI/UX Design</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Figma</span>
-                        <a href="https://www.google.com/search?q=Penpot+download" target="_blank" rel="noopener noreferrer" class="opensource">Penpot</a>
-                    </div>
-                    <p class="description">An open source design and prototyping platform built on open web standards.</p>
                 </div>
             </div>
 
@@ -503,22 +461,6 @@
                     </div>
                     <p class="description">PhotoPrism for private, self hosted photo management with AI tagging. Ente Photos for end to end encrypted cloud storage.</p>
                 </div>
-                <div class="app-card">
-                    <h3>Raw Processing</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Adobe Lightroom</span>
-                        <a href="https://www.google.com/search?q=Darktable+RawTherapee+download" target="_blank" rel="noopener noreferrer" class="opensource">Darktable / RawTherapee</a>
-                    </div>
-                    <p class="description">Professional grade raw image processing and library management.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Video Editing</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Adobe Premiere Pro</span>
-                        <a href="https://www.google.com/search?q=Kdenlive+DaVinci+Resolve+download" target="_blank" rel="noopener noreferrer" class="opensource">Kdenlive / DaVinci Resolve</a>
-                    </div>
-                    <p class="description">Kdenlive is fully open source. DaVinci Resolve is proprietary but offers a powerful free tier for editing and color grading.</p>
-                </div>
             </div>
 
             <div class="tab-content" id="media">
@@ -529,22 +471,6 @@
                         <a href="https://www.google.com/search?q=NewPipe+Grayjay+download" target="_blank" rel="noopener noreferrer" class="opensource">NewPipe / Grayjay</a>
                     </div>
                     <p class="description">Watch videos ad free, play background audio, and download clips without a Google account.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Media Player</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Proprietary Players</span>
-                        <a href="https://www.google.com/search?q=VLC+Media+Player+download" target="_blank" rel="noopener noreferrer" class="opensource">VLC Media Player</a>
-                    </div>
-                    <p class="description">A trusted, open source tool that plays any audio or video format without tracking you.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Music Streaming (Self Hosted)</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Spotify / Apple Music</span>
-                        <a href="https://www.google.com/search?q=Navidrome+Funkwhale+download" target="_blank" rel="noopener noreferrer" class="opensource">Navidrome / Funkwhale</a>
-                    </div>
-                    <p class="description">Self hosted music servers that let you stream your personal collection to any device. Use clients like Feishin for playback.</p>
                 </div>
             </div>
 
@@ -557,30 +483,6 @@
                     </div>
                     <p class="description">The gold standard for end to end encrypted messaging and voice calls with minimal metadata collection.</p>
                 </div>
-                <div class="app-card">
-                    <h3>Maximum Privacy Messaging</h3>
-                    <div class="app-row">
-                        <span class="mainstream">WhatsApp / Telegram</span>
-                        <a href="https://www.google.com/search?q=SimpleX+download" target="_blank" rel="noopener noreferrer" class="opensource">SimpleX</a>
-                    </div>
-                    <p class="description">Uses a decentralized architecture that requires no personal identifiers, not even a phone number. The invite link system can be cumbersome.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Email Client</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Gmail / Outlook (desktop)</span>
-                        <a href="https://www.google.com/search?q=Thunderbird+download" target="_blank" rel="noopener noreferrer" class="opensource">Thunderbird</a>
-                    </div>
-                    <p class="description">A powerful, ad free desktop email client that works with any provider and includes a built in calendar.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Video Conferencing</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Zoom / Microsoft Teams</span>
-                        <a href="https://www.google.com/search?q=Jitsi+Meet+download" target="_blank" rel="noopener noreferrer" class="opensource">Jitsi Meet</a>
-                    </div>
-                    <p class="description">Browser based, encrypted video conferencing that requires no account creation or software installation.</p>
-                </div>
             </div>
 
             <div class="tab-content" id="utilities">
@@ -591,46 +493,6 @@
                         <a href="https://www.google.com/search?q=Bitwarden+KeePassXC+download" target="_blank" rel="noopener noreferrer" class="opensource">Bitwarden / KeePassXC</a>
                     </div>
                     <p class="description">Free, secure, and open source password management across all your devices.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Two Factor Authentication</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Google Authenticator</span>
-                        <a href="https://www.google.com/search?q=Aegis+Authenticator+download" target="_blank" rel="noopener noreferrer" class="opensource">Aegis Authenticator</a>
-                    </div>
-                    <p class="description">A secure, encrypted alternative for managing 2FA codes. Supports biometric unlock and encrypted backups.</p>
-                </div>
-                <div class="app-card">
-                    <h3>App Store Client</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Google Play Store</span>
-                        <a href="https://www.google.com/search?q=Aurora+Store+download" target="_blank" rel="noopener noreferrer" class="opensource">Aurora Store</a>
-                    </div>
-                    <p class="description">An open source client that lets you download apps from the Play Store anonymously.</p>
-                </div>
-                <div class="app-card">
-                    <h3>File Manager</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Paid Android File Managers</span>
-                        <a href="https://www.google.com/search?q=Fossify+File+Manager+download" target="_blank" rel="noopener noreferrer" class="opensource">Fossify File Manager</a>
-                    </div>
-                    <p class="description">A lightweight, ad free file manager focused on speed and simplicity without unnecessary permissions.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Remote Desktop</h3>
-                    <div class="app-row">
-                        <span class="mainstream">TeamViewer</span>
-                        <a href="https://www.google.com/search?q=RustDesk+download" target="_blank" rel="noopener noreferrer" class="opensource">RustDesk</a>
-                    </div>
-                    <p class="description">Free, fast, and secure remote desktop access you can self host.</p>
-                </div>
-                <div class="app-card">
-                    <h3>PDF Editing</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Adobe Acrobat</span>
-                        <a href="https://www.google.com/search?q=Okular+PDF+Arranger+download" target="_blank" rel="noopener noreferrer" class="opensource">Okular / PDF Arranger</a>
-                    </div>
-                    <p class="description">View, annotate, and edit PDFs without subscription fees or telemetry.</p>
                 </div>
             </div>
 
@@ -654,14 +516,6 @@
                     </div>
                     <p class="description">Local first and open source, allowing you to track household income and expenses without selling your financial data.</p>
                 </div>
-                <div class="app-card">
-                    <h3>Portfolio Tracking</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Mainstream Aggregators</span>
-                        <a href="https://www.google.com/search?q=Ghostfolio+download" target="_blank" rel="noopener noreferrer" class="opensource">Ghostfolio</a>
-                    </div>
-                    <p class="description">Open source wealth management software to track investments without handing over credentials to third parties.</p>
-                </div>
             </div>
 
             <div class="tab-content" id="travel">
@@ -684,14 +538,6 @@
                     </div>
                     <p class="description">A self hosted cloud storage solution that gives you full control over your files, contacts, calendars, and more.</p>
                 </div>
-                <div class="app-card">
-                    <h3>File Sync</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Google Drive / Dropbox</span>
-                        <a href="https://www.google.com/search?q=Syncthing+download" target="_blank" rel="noopener noreferrer" class="opensource">Syncthing</a>
-                    </div>
-                    <p class="description">Continuous peer to peer file synchronization. Data syncs directly between your devices without touching a third party server.</p>
-                </div>
             </div>
 
             <div class="tab-content" id="reading">
@@ -703,14 +549,6 @@
                     </div>
                     <p class="description">Self hosted article archiving and reading list management.</p>
                 </div>
-                <div class="app-card">
-                    <h3>Podcasts</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Spotify / Proprietary Apps</span>
-                        <a href="https://www.google.com/search?q=AntennaPod+download" target="_blank" rel="noopener noreferrer" class="opensource">AntennaPod</a>
-                    </div>
-                    <p class="description">A completely free, open source podcast player for Android. Supports any RSS feed, offline downloads, and has no algorithmic interference or ads.</p>
-                </div>
             </div>
 
             <div class="tab-content" id="dev">
@@ -721,14 +559,6 @@
                         <a href="https://www.google.com/search?q=Forgejo+Gitea+download" target="_blank" rel="noopener noreferrer" class="opensource">Forgejo / Gitea</a>
                     </div>
                     <p class="description">Lightweight, self hosted Git services that give you full control over your repositories.</p>
-                </div>
-                <div class="app-card">
-                    <h3>Code Editor</h3>
-                    <div class="app-row">
-                        <span class="mainstream">Visual Studio Code</span>
-                        <a href="https://www.google.com/search?q=VSCodium+download" target="_blank" rel="noopener noreferrer" class="opensource">VSCodium</a>
-                    </div>
-                    <p class="description">A telemetry free, open source build of the VS Code editor.</p>
                 </div>
             </div>
 
@@ -748,7 +578,7 @@
             Most of these apps are available through F Droid (an open source app store) or directly from the developers websites. Click on any app name to search and download.
         </div>
 
-        <button class="notify-btn" id="openContact">Submit an alternate option</button>
+        <button class="notify-btn" id="openContact">Contact Us</button>
     </main>
 
     <div class="modal-overlay" id="contactModal" hidden>
@@ -759,7 +589,7 @@
             
             <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                 <input type="hidden" name="access_key" value="65bb33ff-0316-4d93-9879-f4e3d82dfc52">
-                <input type="hidden" name="subject" value="New message via alternateoption.com">
+                <input type="hidden" name="subject" value="New message via The Attn: Coming Soon">
                 
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -781,19 +611,86 @@
         </div>
     </div>
 
+    <div class="modal-overlay" id="adModal" hidden>
+        <div class="modal-glass">
+            <button class="modal-close" id="closeAd" aria-label="Close ad">×</button>
+            <h2 class="modal-title">Support Our Work</h2>
+            <p class="modal-desc">Please consider supporting this project by viewing our sponsor.</p>
+            <!-- google ad -->
+            <div class="ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7287344098210114" crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-7287344098210114"
+                     data-ad-slot="YOUR_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            
+            <button class="submit-btn" id="continueBrowsing">Continue Browsing</button>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const categorySelect = document.getElementById('categorySelect');
             const contents = document.querySelectorAll('.tab-content');
+            const adModal = document.getElementById('adModal');
+            const closeAdBtn = document.getElementById('closeAd');
+            const continueBtn = document.getElementById('continueBrowsing');
+            
+            let pendingCategory = null;
 
             categorySelect.addEventListener('change', () => {
-                const targetId = categorySelect.value;
-                contents.forEach(c => c.classList.remove('active'));
+                const selectedCategory = categorySelect.value;
                 
+                const adAlreadyShown = sessionStorage.getItem('adShownThisSession');
+                
+                if (!adAlreadyShown) {
+                    pendingCategory = selectedCategory;
+                    showAdModal();
+                    sessionStorage.setItem('adShownThisSession', 'true');
+                } else {
+                    switchCategory(selectedCategory);
+                }
+            });
+
+            function showAdModal() {
+                adModal.hidden = false;
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => adModal.classList.add('active'), 10);
+                categorySelect.value = pendingCategory === 'office' ? 'creative' : 'office';
+            }
+
+            function hideAdModal() {
+                adModal.classList.remove('active');
+                setTimeout(() => {
+                    adModal.hidden = true;
+                    document.body.style.overflow = '';
+                    if (pendingCategory) {
+                        switchCategory(pendingCategory);
+                        categorySelect.value = pendingCategory;
+                        pendingCategory = null;
+                    }
+                }, 200);
+            }
+
+            function switchCategory(targetId) {
+                contents.forEach(c => c.classList.remove('active'));
                 const targetContent = document.getElementById(targetId);
                 if (targetContent) {
                     targetContent.classList.add('active');
                 }
+            }
+
+            closeAdBtn.addEventListener('click', hideAdModal);
+            continueBtn.addEventListener('click', hideAdModal);
+            
+            adModal.addEventListener('click', (e) => {
+                if (e.target === adModal) hideAdModal();
             });
 
             const modal = document.getElementById('contactModal');
@@ -822,7 +719,10 @@
             });
             
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !modal.hidden) closeModal();
+                if (e.key === 'Escape') {
+                    if (!modal.hidden) closeModal();
+                    if (!adModal.hidden) hideAdModal();
+                }
             });
 
             const contactForm = document.querySelector('.contact-form');
