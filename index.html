@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="google-adsense-account" content="ca-pub-7287344098210114">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>alternate option</title>
+    <title>Alternate Option</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -139,8 +139,8 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-bottom: 12px;
-            padding-bottom: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
@@ -175,7 +175,7 @@
         }
 
         .opensource::after {
-            content: " ↗";
+            content: " \2197";
             font-size: 0.9em;
             opacity: 0;
             transition: opacity 0.2s ease;
@@ -402,6 +402,15 @@
             margin-bottom: 24px;
             font-size: 0.9rem;
         }
+
+        .footer {
+            text-align: center;
+            padding: 24px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
@@ -409,7 +418,6 @@
         <img src="ao.png" class="fixed-center-img" alt="AO Logo">
         <p class="tagline">Free, privacy respecting replacements for mainstream apps. No ads, no tracking.</p>
         
-       
         <div class="category-selector">
             <label for="categorySelect" class="sr-only">Select Category</label>
             <select id="categorySelect" class="category-dropdown">
@@ -438,6 +446,36 @@
                         <a href="https://www.google.com/search?q=LibreOffice+download" target="_blank" rel="noopener noreferrer" class="opensource">LibreOffice</a>
                     </div>
                     <p class="description">A completely free offline office suite with Writer, Calc, and Impress. Highly compatible with Microsoft formats.</p>
+                    
+                    <div class="app-row">
+                        <span class="mainstream">Microsoft Office (Web)</span>
+                        <a href="https://www.google.com/search?q=OnlyOffice+download" target="_blank" rel="noopener noreferrer" class="opensource">OnlyOffice</a>
+                    </div>
+                    <p class="description">Clean interface with excellent compatibility for DOCX, XLSX, and PPTX files. Available for desktop and self-hosting.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Note Taking</h3>
+                    <div class="app-row">
+                        <span class="mainstream">Evernote / OneNote</span>
+                        <a href="https://www.google.com/search?q=Joplin+download" target="_blank" rel="noopener noreferrer" class="opensource">Joplin</a>
+                    </div>
+                    <p class="description">Open source note taking with end-to-end encryption. Supports Markdown and syncs via Nextcloud, Dropbox, or OneDrive.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Notion</span>
+                        <a href="https://www.google.com/search?q=Obsidian+download" target="_blank" rel="noopener noreferrer" class="opensource">Obsidian</a>
+                    </div>
+                    <p class="description">A powerful knowledge base that works on top of a local folder of plain text Markdown files.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Project Management</h3>
+                    <div class="app-row">
+                        <span class="mainstream">Trello / Asana</span>
+                        <a href="https://www.google.com/search?q=Focalboard+download" target="_blank" rel="noopener noreferrer" class="opensource">Focalboard</a>
+                    </div>
+                    <p class="description">An open source, self-hosted alternative to Trello, Notion, and Asana. Available as a standalone desktop app or server.</p>
                 </div>
             </div>
 
@@ -449,6 +487,30 @@
                         <a href="https://www.google.com/search?q=GIMP+download" target="_blank" rel="noopener noreferrer" class="opensource">GIMP</a>
                     </div>
                     <p class="description">A long standing free image editor. Recent updates added non destructive layers and improved format compatibility.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Adobe Photoshop (Digital Painting)</span>
+                        <a href="https://www.google.com/search?q=Krita+download" target="_blank" rel="noopener noreferrer" class="opensource">Krita</a>
+                    </div>
+                    <p class="description">Professional, free, and open source painting program. Excellent for concept art, textures, and matte paintings.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Vector Graphics</h3>
+                    <div class="app-row">
+                        <span class="mainstream">Adobe Illustrator</span>
+                        <a href="https://www.google.com/search?q=Inkscape+download" target="_blank" rel="noopener noreferrer" class="opensource">Inkscape</a>
+                    </div>
+                    <p class="description">Professional quality vector graphics software for Windows, Mac, and Linux. Uses SVG as its native format.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Video Editing</h3>
+                    <div class="app-row">
+                        <span class="mainstream">Adobe Premiere Pro</span>
+                        <a href="https://www.google.com/search?q=Kdenlive+download" target="_blank" rel="noopener noreferrer" class="opensource">Kdenlive</a>
+                    </div>
+                    <p class="description">A free and open source video editor for Linux, Windows, and MacOS, based on the MLT Framework, KDE, and Qt.</p>
                 </div>
             </div>
 
@@ -457,9 +519,30 @@
                     <h3>Photo Management</h3>
                     <div class="app-row">
                         <span class="mainstream">Google Photos</span>
-                        <a href="https://www.google.com/search?q=PhotoPrism+Ente+Photos+download" target="_blank" rel="noopener noreferrer" class="opensource">PhotoPrism / Ente Photos</a>
+                        <a href="https://www.google.com/search?q=PhotoPrism+download" target="_blank" rel="noopener noreferrer" class="opensource">PhotoPrism</a>
                     </div>
-                    <p class="description">PhotoPrism for private, self hosted photo management with AI tagging. Ente Photos for end to end encrypted cloud storage.</p>
+                    <p class="description">AI-powered app for browsing, organizing, and sharing your photo collection. Self-hosted for maximum privacy.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Google Photos (Mobile)</span>
+                        <a href="https://www.google.com/search?q=Ente+Photos+download" target="_blank" rel="noopener noreferrer" class="opensource">Ente Photos</a>
+                    </div>
+                    <p class="description">End-to-end encrypted cloud storage and gallery app. A true privacy-first alternative to Google Photos and Apple Photos.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>RAW Photo Processing</h3>
+                    <div class="app-row">
+                        <span class="mainstream">Adobe Lightroom</span>
+                        <a href="https://www.google.com/search?q=Darktable+download" target="_blank" rel="noopener noreferrer" class="opensource">Darktable</a>
+                    </div>
+                    <p class="description">An open source photography workflow application and RAW developer. A virtual lighttable and darkroom for photographers.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Adobe Lightroom (Alternative)</span>
+                        <a href="https://www.google.com/search?q=RawTherapee+download" target="_blank" rel="noopener noreferrer" class="opensource">RawTherapee</a>
+                    </div>
+                    <p class="description">A powerful cross-platform raw photo processing program. Highly regarded for its image quality and advanced algorithms.</p>
                 </div>
             </div>
 
@@ -468,9 +551,39 @@
                     <h3>Video Streaming</h3>
                     <div class="app-row">
                         <span class="mainstream">YouTube Premium</span>
-                        <a href="https://www.google.com/search?q=NewPipe+Grayjay+download" target="_blank" rel="noopener noreferrer" class="opensource">NewPipe / Grayjay</a>
+                        <a href="https://www.google.com/search?q=NewPipe+download" target="_blank" rel="noopener noreferrer" class="opensource">NewPipe</a>
                     </div>
-                    <p class="description">Watch videos ad free, play background audio, and download clips without a Google account.</p>
+                    <p class="description">A lightweight frontend for YouTube. Watch videos ad free, play background audio, and download clips without a Google account.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">YouTube (Alternative)</span>
+                        <a href="https://www.google.com/search?q=LibreTube+download" target="_blank" rel="noopener noreferrer" class="opensource">LibreTube</a>
+                    </div>
+                    <p class="description">An alternative YouTube frontend using Piped instances, ensuring Google tracks neither your device IP nor your watching habits.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Music Streaming</h3>
+                    <div class="app-row">
+                        <span class="mainstream">Spotify</span>
+                        <a href="https://www.google.com/search?q=ViMusic+download" target="_blank" rel="noopener noreferrer" class="opensource">ViMusic</a>
+                    </div>
+                    <p class="description">An Android application for streaming music from YouTube Music. Features background play and offline caching.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Spotify (Cross Platform)</span>
+                        <a href="https://www.google.com/search?q=Spotube+download" target="_blank" rel="noopener noreferrer" class="opensource">Spotube</a>
+                    </div>
+                    <p class="description">Open source Spotify client that does not use the Electron framework. Uses Spotify API for data and YouTube/Piped for audio.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Home Media Server</h3>
+                    <div class="app-row">
+                        <span class="mainstream">Netflix / Plex</span>
+                        <a href="https://www.google.com/search?q=Jellyfin+download" target="_blank" rel="noopener noreferrer" class="opensource">Jellyfin</a>
+                    </div>
+                    <p class="description">The Free Software Media System. Puts you in control of managing and streaming your media without premium fees or tracking.</p>
                 </div>
             </div>
 
@@ -482,6 +595,36 @@
                         <a href="https://www.google.com/search?q=Signal+download" target="_blank" rel="noopener noreferrer" class="opensource">Signal</a>
                     </div>
                     <p class="description">The gold standard for end to end encrypted messaging and voice calls with minimal metadata collection.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">WhatsApp (Anonymous)</span>
+                        <a href="https://www.google.com/search?q=Session+download" target="_blank" rel="noopener noreferrer" class="opensource">Session</a>
+                    </div>
+                    <p class="description">An end-to-end encrypted messenger that removes metadata collection. No phone number or email is required to create an account.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Team Collaboration</h3>
+                    <div class="app-row">
+                        <span class="mainstream">Slack / Discord</span>
+                        <a href="https://www.google.com/search?q=Mattermost+download" target="_blank" rel="noopener noreferrer" class="opensource">Mattermost</a>
+                    </div>
+                    <p class="description">Secure, open source collaboration platform. Designed as a self-hosted alternative to Slack and Microsoft Teams.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Discord (Decentralized)</span>
+                        <a href="https://www.google.com/search?q=Element+Matrix+download" target="_blank" rel="noopener noreferrer" class="opensource">Element (Matrix)</a>
+                    </div>
+                    <p class="description">A secure, decentralized communication app. You own your data and can host your own server or use a trusted public one.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Video Conferencing</h3>
+                    <div class="app-row">
+                        <span class="mainstream">Zoom</span>
+                        <a href="https://www.google.com/search?q=Jitsi+Meet+download" target="_blank" rel="noopener noreferrer" class="opensource">Jitsi Meet</a>
+                    </div>
+                    <p class="description">Fully encrypted, 100 percent open source video conferencing. No account required, just share a link.</p>
                 </div>
             </div>
 
@@ -490,9 +633,33 @@
                     <h3>Password Management</h3>
                     <div class="app-row">
                         <span class="mainstream">1Password / LastPass</span>
-                        <a href="https://www.google.com/search?q=Bitwarden+KeePassXC+download" target="_blank" rel="noopener noreferrer" class="opensource">Bitwarden / KeePassXC</a>
+                        <a href="https://www.google.com/search?q=Bitwarden+download" target="_blank" rel="noopener noreferrer" class="opensource">Bitwarden</a>
                     </div>
-                    <p class="description">Free, secure, and open source password management across all your devices.</p>
+                    <p class="description">Free, secure, and open source password management across all your devices. Self-hosting is also supported.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">1Password (Offline)</span>
+                        <a href="https://www.google.com/search?q=KeePassXC+download" target="_blank" rel="noopener noreferrer" class="opensource">KeePassXC</a>
+                    </div>
+                    <p class="description">A modern, secure, and open source password manager that stores your passwords locally on your device.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>System Cleanup</h3>
+                    <div class="app-row">
+                        <span class="mainstream">CCleaner</span>
+                        <a href="https://www.google.com/search?q=BleachBit+download" target="_blank" rel="noopener noreferrer" class="opensource">BleachBit</a>
+                    </div>
+                    <p class="description">Frees disk space and guards your privacy. Open source and trusted by millions, without the bundled adware of proprietary tools.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Remote Desktop</h3>
+                    <div class="app-row">
+                        <span class="mainstream">TeamViewer</span>
+                        <a href="https://www.google.com/search?q=RustDesk+download" target="_blank" rel="noopener noreferrer" class="opensource">RustDesk</a>
+                    </div>
+                    <p class="description">Open source virtual/remote desktop software. You can use the public servers or host your own for complete control.</p>
                 </div>
             </div>
 
@@ -501,9 +668,21 @@
                     <h3>Web Browser</h3>
                     <div class="app-row">
                         <span class="mainstream">Google Chrome</span>
-                        <a href="https://www.google.com/search?q=Firefox+Brave+download" target="_blank" rel="noopener noreferrer" class="opensource">Firefox / Brave</a>
+                        <a href="https://www.google.com/search?q=Firefox+download" target="_blank" rel="noopener noreferrer" class="opensource">Mozilla Firefox</a>
                     </div>
-                    <p class="description">Prevents cross site tracking and does not feed your browsing history into an advertising ecosystem.</p>
+                    <p class="description">Prevents cross site tracking and does not feed your browsing history into an advertising ecosystem. Highly customizable.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Google Chrome (Privacy Focused)</span>
+                        <a href="https://www.google.com/search?q=Brave+browser+download" target="_blank" rel="noopener noreferrer" class="opensource">Brave</a>
+                    </div>
+                    <p class="description">Built on Chromium but strips out Google tracking. Includes built in ad and tracker blocking by default.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Google Chrome (Maximum Privacy)</span>
+                        <a href="https://www.google.com/search?q=Mullvad+Browser+download" target="_blank" rel="noopener noreferrer" class="opensource">Mullvad Browser</a>
+                    </div>
+                    <p class="description">Developed in partnership with the Tor Project. Designed to minimize fingerprinting and tracking, without requiring the Tor network.</p>
                 </div>
             </div>
 
@@ -512,9 +691,24 @@
                     <h3>Budgeting</h3>
                     <div class="app-row">
                         <span class="mainstream">Mint / YNAB</span>
-                        <a href="https://www.google.com/search?q=Actual+Budget+Firefly+III+download" target="_blank" rel="noopener noreferrer" class="opensource">Actual Budget / Firefly III</a>
+                        <a href="https://www.google.com/search?q=Actual+Budget+download" target="_blank" rel="noopener noreferrer" class="opensource">Actual Budget</a>
                     </div>
                     <p class="description">Local first and open source, allowing you to track household income and expenses without selling your financial data.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Mint (Self Hosted)</span>
+                        <a href="https://www.google.com/search?q=Firefly+III+download" target="_blank" rel="noopener noreferrer" class="opensource">Firefly III</a>
+                    </div>
+                    <p class="description">A free and open source personal finance manager. Self-hosted, giving you absolute ownership of your financial data.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Accounting</h3>
+                    <div class="app-row">
+                        <span class="mainstream">QuickBooks</span>
+                        <a href="https://www.google.com/search?q=GnuCash+download" target="_blank" rel="noopener noreferrer" class="opensource">GnuCash</a>
+                    </div>
+                    <p class="description">Personal and small business financial-accounting software, freely licensed under the GNU GPL. Double-entry accounting system.</p>
                 </div>
             </div>
 
@@ -523,9 +717,24 @@
                     <h3>Navigation</h3>
                     <div class="app-row">
                         <span class="mainstream">Google Maps</span>
-                        <a href="https://www.google.com/search?q=Organic+Maps+OsmAnd+download" target="_blank" rel="noopener noreferrer" class="opensource">Organic Maps / OsmAnd</a>
+                        <a href="https://www.google.com/search?q=Organic+Maps+download" target="_blank" rel="noopener noreferrer" class="opensource">Organic Maps</a>
                     </div>
-                    <p class="description">Built on OpenStreetMap data with fully offline routing and no location tracking. Ideal for hiking and road trips. Lacks real time traffic data.</p>
+                    <p class="description">Built on OpenStreetMap data with fully offline routing and no location tracking. Ideal for hiking and road trips.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Google Maps (Advanced)</span>
+                        <a href="https://www.google.com/search?q=OsmAnd+download" target="_blank" rel="noopener noreferrer" class="opensource">OsmAnd</a>
+                    </div>
+                    <p class="description">Highly detailed offline maps with advanced features like contour lines, elevation, and extensive customization.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Travel Guides</h3>
+                    <div class="app-row">
+                        <span class="mainstream">TripAdvisor</span>
+                        <a href="https://www.google.com/search?q=Wikivoyage+app" target="_blank" rel="noopener noreferrer" class="opensource">Wikivoyage</a>
+                    </div>
+                    <p class="description">A free, worldwide travel guide written by volunteers. Available offline and completely free of commercial bias.</p>
                 </div>
             </div>
 
@@ -537,6 +746,12 @@
                         <a href="https://www.google.com/search?q=Nextcloud+download" target="_blank" rel="noopener noreferrer" class="opensource">Nextcloud</a>
                     </div>
                     <p class="description">A self hosted cloud storage solution that gives you full control over your files, contacts, calendars, and more.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Dropbox (Sync Only)</span>
+                        <a href="https://www.google.com/search?q=Syncthing+download" target="_blank" rel="noopener noreferrer" class="opensource">Syncthing</a>
+                    </div>
+                    <p class="description">A continuous file synchronization program. It synchronizes files between two or more computers in real time, safely protected from prying eyes.</p>
                 </div>
             </div>
 
@@ -547,7 +762,22 @@
                         <span class="mainstream">Pocket</span>
                         <a href="https://www.google.com/search?q=Wallabag+download" target="_blank" rel="noopener noreferrer" class="opensource">Wallabag</a>
                     </div>
-                    <p class="description">Self hosted article archiving and reading list management.</p>
+                    <p class="description">Self hosted article archiving and reading list management. Saves content cleanly without ads or tracking.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Pocket (Alternative)</span>
+                        <a href="https://www.google.com/search?q=Linkwarden+download" target="_blank" rel="noopener noreferrer" class="opensource">Linkwarden</a>
+                    </div>
+                    <p class="description">A fully open source, self-hosted bookmark and link archive manager. Captures screenshots and PDFs of saved pages.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Podcasts</h3>
+                    <div class="app-row">
+                        <span class="mainstream">Spotify / Apple Podcasts</span>
+                        <a href="https://www.google.com/search?q=AntennaPod+download" target="_blank" rel="noopener noreferrer" class="opensource">AntennaPod</a>
+                    </div>
+                    <p class="description">A podcast manager for Android. Open source, no tracking, and supports all major podcast directories.</p>
                 </div>
             </div>
 
@@ -556,9 +786,33 @@
                     <h3>Code Hosting</h3>
                     <div class="app-row">
                         <span class="mainstream">GitHub</span>
-                        <a href="https://www.google.com/search?q=Forgejo+Gitea+download" target="_blank" rel="noopener noreferrer" class="opensource">Forgejo / Gitea</a>
+                        <a href="https://www.google.com/search?q=Forgejo+download" target="_blank" rel="noopener noreferrer" class="opensource">Forgejo</a>
                     </div>
-                    <p class="description">Lightweight, self hosted Git services that give you full control over your repositories.</p>
+                    <p class="description">A lightweight, self-hosted Git service. A soft fork of Gitea, focused on community governance and sustainability.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">GitHub (Alternative)</span>
+                        <a href="https://www.google.com/search?q=Gitea+download" target="_blank" rel="noopener noreferrer" class="opensource">Gitea</a>
+                    </div>
+                    <p class="description">A painless, self-hosted Git service. Easy to install and runs well on low-powered hardware like a Raspberry Pi.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>API Development</h3>
+                    <div class="app-row">
+                        <span class="mainstream">Postman</span>
+                        <a href="https://www.google.com/search?q=Bruno+api+download" target="_blank" rel="noopener noreferrer" class="opensource">Bruno</a>
+                    </div>
+                    <p class="description">An offline-only, open source API client. Stores collections directly in your Git repository, avoiding cloud sync and forced accounts.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Containerization</h3>
+                    <div class="app-row">
+                        <span class="mainstream">Docker Desktop</span>
+                        <a href="https://www.google.com/search?q=Podman+download" target="_blank" rel="noopener noreferrer" class="opensource">Podman</a>
+                    </div>
+                    <p class="description">A daemonless, open source container engine. Developed by Red Hat as a secure, drop-in replacement for Docker.</p>
                 </div>
             </div>
 
@@ -569,21 +823,40 @@
                         <span class="mainstream">Strava</span>
                         <a href="https://www.google.com/search?q=OpenTracks+download" target="_blank" rel="noopener noreferrer" class="opensource">OpenTracks</a>
                     </div>
-                    <p class="description">GPS activity tracking for Android that stores data locally and exports to standard formats.</p>
+                    <p class="description">GPS activity tracking for Android that stores data locally and exports to standard formats. No social network pressure.</p>
+
+                    <div class="app-row">
+                        <span class="mainstream">Strava (Alternative)</span>
+                        <a href="https://www.google.com/search?q=FitoTrack+download" target="_blank" rel="noopener noreferrer" class="opensource">FitoTrack</a>
+                    </div>
+                    <p class="description">Free and open source fitness tracking app. Focuses on privacy and does not require an account or internet connection.</p>
+                </div>
+
+                <div class="app-card">
+                    <h3>Body Metrics</h3>
+                    <div class="app-row">
+                        <span class="mainstream">MyFitnessPal</span>
+                        <a href="https://www.google.com/search?q=OpenScale+download" target="_blank" rel="noopener noreferrer" class="opensource">OpenScale</a>
+                    </div>
+                    <p class="description">An Android app to track weight and body measurements. Supports multiple users and syncs with various smart scales via Bluetooth.</p>
                 </div>
             </div>
         </div>
 
         <div class="note">
-            Most of these apps are available through F Droid (an open source app store) or directly from the developers websites. Click on any app name to search and download.
+            Most of these apps are available through F-Droid (an open source app store) or directly from the developers websites. Click on any app name to search and download.
         </div>
 
         <button class="notify-btn" id="openContact">Submit an alternate option</button>
+
+        <footer class="footer">
+            &copy; 2026 alternateoption.com
+        </footer>
     </main>
 
     <div class="modal-overlay" id="contactModal" hidden>
         <div class="modal-glass">
-            <button class="modal-close" id="closeContact" aria-label="Close modal">×</button>
+            <button class="modal-close" id="closeContact" aria-label="Close modal">&times;</button>
             <h2 class="modal-title">Get in touch</h2>
             <p class="modal-desc">Contacting Owner</p>
             
@@ -613,10 +886,10 @@
 
     <div class="modal-overlay" id="adModal" hidden>
         <div class="modal-glass">
-            <button class="modal-close" id="closeAd" aria-label="Close ad">×</button>
+            <button class="modal-close" id="closeAd" aria-label="Close ad">&times;</button>
             <h2 class="modal-title">Support Our Work</h2>
             <p class="modal-desc">Please consider supporting this project by viewing our sponsor.</p>
-            <!-- google ad -->
+            
             <div class="ad-container">
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7287344098210114" crossorigin="anonymous"></script>
                 <ins class="adsbygoogle"
@@ -727,20 +1000,38 @@
 
             const contactForm = document.querySelector('.contact-form');
             contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
                 const btn = contactForm.querySelector('.submit-btn');
                 const originalText = btn.textContent;
                 btn.textContent = 'Sending...';
                 btn.disabled = true;
                 
-                setTimeout(() => {
-                    btn.textContent = 'Sent';
+                const formData = new FormData(contactForm);
+                
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (response.ok) {
+                        btn.textContent = 'Sent';
+                        setTimeout(() => {
+                            btn.textContent = originalText;
+                            btn.disabled = false;
+                            closeModal();
+                            contactForm.reset();
+                        }, 1500);
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                } catch (error) {
+                    btn.textContent = 'Failed';
                     setTimeout(() => {
                         btn.textContent = originalText;
                         btn.disabled = false;
-                        closeModal();
-                        contactForm.reset();
                     }, 1500);
-                }, 800);
+                }
             });
         });
     </script>
