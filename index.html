@@ -197,9 +197,9 @@
       let results = allCars.filter(car => {
         if (make && car.make !== make) return false;
         if (model && car.model !== model) return false;
-        if (type && car.type.toLowerCase() !== type.toLowerCase()) return false;
-        if (fuel && car.fuel.toLowerCase() !== fuel.toLowerCase()) return false;
-        if (trans && car.transmission.toLowerCase() !== trans.toLowerCase()) return false;
+        if (type && String(car.type || '').toLowerCase() !== type.toLowerCase()) return false;
+        if (fuel && String(car.fuel || '').toLowerCase() !== fuel.toLowerCase()) return false;
+        if (trans && String(car.transmission || '').toLowerCase() !== trans.toLowerCase()) return false;
         if (seats && String(car.seats) !== seats) return false;
         if (!isNaN(maxPrice) && car.price > maxPrice) return false;
         if (!isNaN(minYear) && car.year < minYear) return false;
@@ -232,24 +232,55 @@
       }
 
       cars.forEach(car => {
-const card = document.createElement('div');
-card.className = 'bg-white rounded-lg shadow overflow-hidden flex flex-col justify-between';
-card.innerHTML = <div> <div class="relative"> <img src="${car.image}" alt="${car.make} ${car.model}" class="w-full h-48 object-cover" /> <span class="absolute top-2 right-2 bg-slate-900/80 text-white text-xs px-2 py-1 rounded">${car.source}</span> </div> <div class="p-4"> <h3 class="font-bold text-lg">${car.year} ${car.make} ${car.model}</h3> <p class="text-xl font-extrabold text-blue-600 mt-1">R ${car.price.toLocaleString()}</p> <div class="mt-3 grid grid-cols-2 gap-y-1 text-xs text-gray-600 border-t pt-3"> <span><strong>Type:</strong> ${car.type}</span> <span><strong>Fuel:</strong> ${car.fuel}</span> <span><strong>Trans:</strong> ${car.transmission}</span> <span><strong>Seats:</strong> ${car.seats} Seater</span> <span><strong>Mileage:</strong> ${car.miles.toLocaleString()} km</span> <span><strong>Power:</strong> ${car.kw} kW</span> <span><strong>Engine:</strong> ${car.engine_cc ? car.engine_cc + ' cc' : 'N/A (EV)'}</span> </div> </div> </div> <div class="p-4 pt-0"> <a href="${car.url}" target="_blank" rel="noopener" class="block text-center bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold py-2 rounded transition"> View on ${car.source} </a> </div>;
-grid.appendChild(card);
-});
-}
-document.getElementById('filterMake').addEventListener('change', () => {
-updateModels();
-applyFiltersAndSort();
-});
-document.querySelectorAll('select:not(#filterMake), input').forEach(el => {
-el.addEventListener('input', applyFiltersAndSort);
-});
-document.getElementById('resetBtn').addEventListener('click', () => {
-document.querySelectorAll('select').forEach(s => s.value = '');
-document.querySelectorAll('input').forEach(i => i.value = '');
-updateModels();
-applyFiltersAndSort();
-});
-loadCars();
-</script>
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-lg shadow overflow-hidden flex flex-col justify-between';
+        card.innerHTML = `
+          <div>
+            <div class="relative">
+              <img src="${car.image || ''}" alt="${car.make} ${car.model}" class="w-full h-48 object-cover" />
+              <span class="absolute top-2 right-2 bg-slate-900/80 text-white text-xs px-2 py-1 rounded">${car.source}</span>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-lg">${car.year} ${car.make} ${car.model}</h3>
+              <p class="text-xl font-extrabold text-blue-600 mt-1">R ${(car.price || 0).toLocaleString()}</p>
+              <div class="mt-3 grid grid-cols-2 gap-y-1 text-xs text-gray-600 border-t pt-3">
+                <span><strong>Type:</strong> ${car.type}</span>
+                <span><strong>Fuel:</strong> ${car.fuel}</span>
+                <span><strong>Trans:</strong> ${car.transmission}</span>
+                <span><strong>Seats:</strong> ${car.seats} Seater</span>
+                <span><strong>Mileage:</strong> ${(car.miles || 0).toLocaleString()} km</span>
+                <span><strong>Power:</strong> ${car.kw} kW</span>
+                <span><strong>Engine:</strong> ${car.engine_cc ? car.engine_cc + ' cc' : 'N/A (EV)'}</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <a href="${car.url}" target="_blank" rel="noopener" class="block text-center bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold py-2 rounded transition">View on ${car.source}</a>
+          </div>`;
+        grid.appendChild(card);
+      });
+    }
+
+    function setupEventListeners() {
+      document.getElementById('filterMake').addEventListener('change', () => {
+        updateModels();
+        applyFiltersAndSort();
+      });
+      document.querySelectorAll('select:not(#filterMake), input').forEach(el => {
+        el.addEventListener('input', applyFiltersAndSort);
+      });
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        document.querySelectorAll('select').forEach(s => s.value = '');
+        document.querySelectorAll('input[type="number"]').forEach(i => i.value = '');
+        updateModels();
+        applyFiltersAndSort();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setupEventListeners();
+      loadCars();
+    });
+  </script>
+</body>
+</html>
