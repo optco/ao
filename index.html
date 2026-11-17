@@ -3,30 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AlternateOption | Hybrid & Electric Aggregator</title>
-  
-  <!-- Modern Font -->
+  <title>AlternateOption | New Chinese Hybrid & Electric Cars in South Africa</title>
+  <meta name="description" content="Compare brand new Chinese hybrid, plug-in hybrid and electric cars on sale in South Africa." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
           colors: {
-            brand: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              500: '#3b82f6',
-              600: '#2563eb',
-              900: '#1e3a8a',
-            }
+            brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 900: '#1e3a8a' }
           }
         }
       }
@@ -35,12 +26,11 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
-  <!-- HEADER -->
   <header class="bg-slate-900 text-white shadow-lg sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-3">
       <div>
         <h1 class="text-xl sm:text-2xl font-bold tracking-tight">AlternateOption</h1>
-        <p class="text-xs sm:text-sm text-slate-400 mt-1">Aggregating listings from Cars.co.za & AutoTrader.co.za</p>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">New Chinese hybrid and electric cars in South Africa</p>
       </div>
       <div class="bg-slate-800 px-4 py-2 rounded-full border border-slate-700">
         <p id="resultCount" class="text-sm font-medium text-slate-200">Loading cars...</p>
@@ -49,157 +39,153 @@
   </header>
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 lg:grid-cols-4 gap-8">
-    
-    <!-- FILTERS SIDEBAR -->
+
+    <!-- FILTERS -->
     <aside class="lg:col-span-1">
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 sticky top-24 space-y-5">
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 lg:sticky lg:top-24 space-y-5">
         <div class="flex justify-between items-center border-b border-slate-100 pb-4">
           <h2 class="font-bold text-lg text-slate-900">Filters</h2>
-          <button id="resetBtn" class="text-xs font-semibold text-brand-600 hover:text-brand-900 hover:underline transition-colors">Reset All</button>
+          <button id="resetBtn" class="text-xs font-semibold text-brand-600 hover:text-brand-900 hover:underline transition-colors">Reset all</button>
         </div>
 
-        <!-- Make & Model -->
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Make</label>
+          <label for="filterMake" class="block text-xs font-semibold text-slate-500 mb-1.5">Brand</label>
           <select id="filterMake" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-            <option value="">All Makes</option>
+            <option value="">All brands</option>
           </select>
         </div>
 
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Model</label>
+          <label for="filterModel" class="block text-xs font-semibold text-slate-500 mb-1.5">Model</label>
           <select id="filterModel" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-            <option value="">All Models</option>
+            <option value="">All models</option>
           </select>
         </div>
 
-        <!-- Body Type -->
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Body Type</label>
+          <label for="filterType" class="block text-xs font-semibold text-slate-500 mb-1.5">Body type</label>
           <select id="filterType" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-            <option value="">All Types</option>
+            <option value="">All types</option>
             <option value="SUV">SUV / Crossover</option>
             <option value="Bakkie">Bakkie / Pickup</option>
             <option value="Sedan">Sedan</option>
             <option value="Hatchback">Hatchback</option>
-            <option value="MPV">MPV / People-Mover</option>
+            <option value="MPV">MPV / People-mover</option>
             <option value="Coupe">Coupe</option>
           </select>
         </div>
 
-        <!-- Fuel Type -->
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Fuel Type</label>
+          <label for="filterFuel" class="block text-xs font-semibold text-slate-500 mb-1.5">Fuel type</label>
           <select id="filterFuel" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-            <option value="">All Electric & Hybrid</option>
-            <option value="HEV">HEV (Hybrid)</option>
-            <option value="PHEV">PHEV (Plug-in Hybrid)</option>
+            <option value="">Hybrid, plug-in and electric</option>
+            <option value="HEV">HEV (hybrid)</option>
+            <option value="PHEV">PHEV (plug-in hybrid)</option>
             <option value="Electric">Electric (EV)</option>
-            <option value="REEV">REEV (Range Extender)</option>
+            <option value="REEV">REEV (range extender)</option>
           </select>
         </div>
 
-        <!-- Transmission -->
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Transmission</label>
-          <select id="filterTransmission" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-            <option value="">Auto & Manual</option>
-            <option value="Auto">Automatic</option>
-            <option value="Manual">Manual</option>
-          </select>
-        </div>
-
-        <!-- Seats -->
-        <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Seats</label>
+          <label for="filterSeats" class="block text-xs font-semibold text-slate-500 mb-1.5">Seats</label>
           <select id="filterSeats" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-            <option value="">Any Seats</option>
-            <option value="5">5 Seater</option>
-            <option value="7">7 Seater</option>
-            <option value="8">8 Seater</option>
+            <option value="">Any seats</option>
+            <option value="5">5 seater</option>
+            <option value="7">7 seater</option>
           </select>
         </div>
 
-        <!-- Max Price (ZAR) -->
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Max Price (R)</label>
-          <input type="number" id="filterMaxPrice" placeholder="e.g. 550000" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none" />
+          <label for="filterMaxPrice" class="block text-xs font-semibold text-slate-500 mb-1.5">Max price (R)</label>
+          <input type="number" id="filterMaxPrice" placeholder="e.g. 600000" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none" />
         </div>
 
-        <!-- Min Year -->
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Min Year</label>
-          <input type="number" id="filterMinYear" placeholder="e.g. 2021" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none" />
+          <label for="filterMinRange" class="block text-xs font-semibold text-slate-500 mb-1.5">Min electric range (km)</label>
+          <input type="number" id="filterMinRange" placeholder="e.g. 400" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none" />
         </div>
 
-        <!-- Max Mileage (km) -->
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Max Mileage (km)</label>
-          <input type="number" id="filterMaxMiles" placeholder="e.g. 60000" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none" />
+          <label for="filterMinKw" class="block text-xs font-semibold text-slate-500 mb-1.5">Min power (kW)</label>
+          <input type="number" id="filterMinKw" placeholder="e.g. 150" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none" />
         </div>
 
-        <!-- Max Engine Size (cc) -->
-        <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Max Engine (cc)</label>
-          <input type="number" id="filterMaxEngine" placeholder="e.g. 2000" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none" />
-        </div>
-
-        <!-- Min Power (kW) -->
-        <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Min Power (kW)</label>
-          <input type="number" id="filterMinKw" placeholder="e.g. 110" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none" />
-        </div>
+        <p class="text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
+          Range, power and seats are still being added. Cars without that detail stay in the results when you filter on it.
+        </p>
       </div>
     </aside>
 
-    <!-- RESULTS & SORTING -->
+    <!-- RESULTS -->
     <section class="lg:col-span-3 space-y-6">
-      <!-- Sorting Bar -->
       <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-3">
-        <span class="text-sm font-semibold text-slate-600">Sort results by:</span>
+        <label for="sortBy" class="text-sm font-semibold text-slate-600">Sort by</label>
         <select id="sortBy" class="border border-slate-200 rounded-xl px-3 py-2 text-sm w-full sm:w-auto bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="year-desc">Year: Newest First</option>
-          <option value="miles-asc">Mileage: Lowest First</option>
-          <option value="kw-desc">Power: Highest First</option>
+          <option value="price-asc">Price: low to high</option>
+          <option value="price-desc">Price: high to low</option>
+          <option value="range-desc">Range: longest first</option>
+          <option value="kw-desc">Power: highest first</option>
+          <option value="brand-asc">Brand: A to Z</option>
         </select>
       </div>
 
-      <!-- CAR CARDS GRID -->
       <div id="carGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
-    </section>
 
+      <p class="text-xs text-slate-500 leading-relaxed">
+        Prices are new-car "from" prices in rand, including VAT, taken from South African motoring sites and price lists on the date shown on each card.
+        They change often and may differ by dealer, so confirm the price and specification with a dealer before you buy.
+      </p>
+    </section>
   </main>
 
   <script>
     let allCars = [];
 
+    const FUEL_LABELS = {
+      HEV: 'Hybrid',
+      PHEV: 'Plug-in hybrid',
+      REEV: 'Range extender',
+      Electric: 'Electric'
+    };
+    const FUEL_BADGE = {
+      HEV: 'bg-emerald-100 text-emerald-800',
+      PHEV: 'bg-sky-100 text-sky-800',
+      REEV: 'bg-violet-100 text-violet-800',
+      Electric: 'bg-blue-100 text-blue-800'
+    };
+
+    const el = id => document.getElementById(id);
+    const num = v => { const n = Number(v); return Number.isFinite(n) && n > 0 ? n : 0; };
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const rand = n => 'R ' + Math.round(n).toLocaleString('en-ZA').replace(/\u00a0/g, ' ');
+
+    function formatDate(iso) {
+      if (!iso) return '';
+      const d = new Date(iso + 'T00:00:00');
+      if (isNaN(d)) return '';
+      return d.toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
     async function loadCars() {
       try {
-        const res = await fetch('cars.json');
+        const res = await fetch('cars.json', { cache: 'no-cache' });
         if (!res.ok) throw new Error('Failed to fetch');
         allCars = await res.json();
-        populateDropdowns(allCars);
+        populateDropdowns();
         applyFiltersAndSort();
       } catch (err) {
-        document.getElementById('resultCount').innerText = 'Error loading data';
-        document.getElementById('carGrid').innerHTML = `
+        el('resultCount').innerText = 'Could not load cars';
+        el('carGrid').innerHTML = `
           <div class="col-span-full text-center py-16">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-50 mb-4">
-              <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </div>
-            <h3 class="text-lg font-semibold text-slate-900">Failed to load cars</h3>
-            <p class="text-slate-500 mt-1">Please ensure <code class="bg-slate-100 px-1 py-0.5 rounded text-xs">cars.json</code> exists in the same directory.</p>
-          </div>
-        `;
+            <h3 class="text-lg font-semibold text-slate-900">Cars could not be loaded</h3>
+            <p class="text-slate-500 mt-1">Check that <code class="bg-slate-100 px-1 py-0.5 rounded text-xs">cars.json</code> is in the same folder as this page, then refresh.</p>
+          </div>`;
       }
     }
 
-    function populateDropdowns(cars) {
-      const makeSelect = document.getElementById('filterMake');
-      const makes = [...new Set(cars.map(c => c.make))].sort();
-      makes.forEach(make => {
+    function populateDropdowns() {
+      const makeSelect = el('filterMake');
+      [...new Set(allCars.map(c => c.make))].sort().forEach(make => {
         const opt = document.createElement('option');
         opt.value = make;
         opt.textContent = make;
@@ -209,13 +195,11 @@
     }
 
     function updateModels() {
-      const selectedMake = document.getElementById('filterMake').value;
-      const modelSelect = document.getElementById('filterModel');
-      modelSelect.innerHTML = '<option value="">All Models</option>';
-
-      const filtered = selectedMake ? allCars.filter(c => c.make === selectedMake) : allCars;
-      const models = [...new Set(filtered.map(c => c.model))].sort();
-      models.forEach(model => {
+      const selectedMake = el('filterMake').value;
+      const modelSelect = el('filterModel');
+      modelSelect.innerHTML = '<option value="">All models</option>';
+      const pool = selectedMake ? allCars.filter(c => c.make === selectedMake) : allCars;
+      [...new Set(pool.map(c => c.model))].sort().forEach(model => {
         const opt = document.createElement('option');
         opt.value = model;
         opt.textContent = model;
@@ -224,138 +208,127 @@
     }
 
     function applyFiltersAndSort() {
-      const make = document.getElementById('filterMake').value;
-      const model = document.getElementById('filterModel').value;
-      const type = document.getElementById('filterType').value;
-      const fuel = document.getElementById('filterFuel').value;
-      const trans = document.getElementById('filterTransmission').value;
-      const seats = document.getElementById('filterSeats').value;
-      const maxPrice = parseFloat(document.getElementById('filterMaxPrice').value);
-      const minYear = parseInt(document.getElementById('filterMinYear').value);
-      const maxMiles = parseFloat(document.getElementById('filterMaxMiles').value);
-      const maxEngine = parseFloat(document.getElementById('filterMaxEngine').value);
-      const minKw = parseFloat(document.getElementById('filterMinKw').value);
-      const sortBy = document.getElementById('sortBy').value;
+      const make = el('filterMake').value;
+      const model = el('filterModel').value;
+      const type = el('filterType').value;
+      const fuel = el('filterFuel').value;
+      const seats = el('filterSeats').value;
+      const maxPrice = parseFloat(el('filterMaxPrice').value);
+      const minRange = parseFloat(el('filterMinRange').value);
+      const minKw = parseFloat(el('filterMinKw').value);
+      const sortBy = el('sortBy').value;
 
-      let results = allCars.filter(car => {
+      // A filter only removes a car when the car's value is known and fails it.
+      const results = allCars.filter(car => {
         if (make && car.make !== make) return false;
         if (model && car.model !== model) return false;
         if (type && String(car.type || '').toLowerCase() !== type.toLowerCase()) return false;
         if (fuel && String(car.fuel || '').toLowerCase() !== fuel.toLowerCase()) return false;
-        if (trans && String(car.transmission || '').toLowerCase() !== trans.toLowerCase()) return false;
-        if (seats && String(car.seats) !== seats) return false;
+        if (seats && num(car.seats) && String(car.seats) !== seats) return false;
         if (!isNaN(maxPrice) && car.price > maxPrice) return false;
-        if (!isNaN(minYear) && car.year < minYear) return false;
-        if (!isNaN(maxMiles) && car.miles > maxMiles) return false;
-        if (!isNaN(maxEngine) && car.engine_cc > maxEngine) return false;
-        if (!isNaN(minKw) && car.kw < minKw) return false;
+        if (!isNaN(minRange) && num(car.range_km) && car.range_km < minRange) return false;
+        if (!isNaN(minKw) && num(car.kw) && car.kw < minKw) return false;
         return true;
       });
 
       results.sort((a, b) => {
-        if (sortBy === 'price-asc') return a.price - b.price;
-        if (sortBy === 'price-desc') return b.price - a.price;
-        if (sortBy === 'year-desc') return b.year - a.year;
-        if (sortBy === 'miles-asc') return a.miles - b.miles;
-        if (sortBy === 'kw-desc') return b.kw - a.kw;
-        return 0;
+        switch (sortBy) {
+          case 'price-desc': return b.price - a.price;
+          case 'range-desc': return num(b.range_km) - num(a.range_km);
+          case 'kw-desc': return num(b.kw) - num(a.kw);
+          case 'brand-asc': return a.make.localeCompare(b.make) || a.price - b.price;
+          default: return a.price - b.price;
+        }
       });
 
       renderCars(results);
     }
 
+    function specRow(label, value) {
+      const known = value !== '' && value !== null && value !== undefined;
+      return `<div><dt class="text-slate-400">${label}</dt><dd class="font-semibold ${known ? 'text-slate-800' : 'text-slate-400'}">${known ? esc(value) : 'Not listed'}</dd></div>`;
+    }
+
     function renderCars(cars) {
-      const grid = document.getElementById('carGrid');
-      document.getElementById('resultCount').innerText = `${cars.length} car${cars.length !== 1 ? 's' : ''} found`;
+      const grid = el('carGrid');
+      el('resultCount').innerText = `${cars.length} car${cars.length !== 1 ? 's' : ''} found`;
       grid.innerHTML = '';
 
       if (cars.length === 0) {
         grid.innerHTML = `
           <div class="col-span-full text-center py-16 bg-white rounded-2xl border border-slate-200 border-dashed">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-50 mb-4">
-              <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </div>
-            <h3 class="text-lg font-semibold text-slate-900">No cars match your filters</h3>
-            <p class="text-slate-500 mt-1">Try adjusting your criteria or reset the filters.</p>
-          </div>
-        `;
+            <h3 class="text-lg font-semibold text-slate-900">No cars match these filters</h3>
+            <p class="text-slate-500 mt-1">Raise the maximum price or choose Reset all.</p>
+          </div>`;
         return;
       }
 
       cars.forEach(car => {
-        const card = document.createElement('div');
-        card.className = 'bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col';
-        
-        const imgUrl = car.image && car.image.trim() !== '' ? car.image : 'https://placehold.co/600x400/f1f5f9/475569?text=No+Image';
-        const sourceBadgeColor = car.source?.toLowerCase().includes('autotrader') ? 'bg-orange-600' : 'bg-blue-600';
+        const card = document.createElement('article');
+        card.className = 'bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 flex flex-col';
+
+        const fuelLabel = FUEL_LABELS[car.fuel] || car.fuel || '';
+        const fuelClass = FUEL_BADGE[car.fuel] || 'bg-slate-100 text-slate-700';
+        const alt = `${car.make} ${car.model}`;
+
+        const media = car.image && car.image.trim()
+          ? `<img src="${esc(car.image)}" alt="${esc(alt)}" class="w-full aspect-video object-cover bg-slate-100" loading="lazy" />`
+          : `<div class="w-full aspect-video bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center" role="img" aria-label="${esc(alt)}">
+               <span class="text-2xl font-bold text-slate-400 tracking-tight">${esc(car.make)}</span>
+             </div>`;
+
+        const range = num(car.range_km) ? `${car.range_km} km` : '';
+        const battery = num(car.battery_kwh) ? `${car.battery_kwh} kWh` : '';
+        const power = num(car.kw) ? `${car.kw} kW` : '';
+        const seats = num(car.seats) ? String(car.seats) : '';
+        const checked = formatDate(car.price_checked);
 
         card.innerHTML = `
-          <div class="relative group">
-            <img src="${imgUrl}" alt="${car.make} ${car.model}" class="w-full aspect-video object-cover bg-slate-100" loading="lazy" />
-            <span class="absolute top-3 right-3 ${sourceBadgeColor} text-white text-xs font-bold px-2.5 py-1 rounded-lg shadow-md backdrop-blur-sm bg-opacity-90">
-              ${car.source || 'Listing'}
-            </span>
+          <div class="relative">
+            ${media}
+            <span class="absolute top-3 left-3 ${fuelClass} text-xs font-semibold px-2.5 py-1 rounded-lg shadow-sm">${esc(fuelLabel)}</span>
           </div>
-          
+
           <div class="p-5 flex flex-col flex-grow">
             <div class="mb-4">
-              <h3 class="font-bold text-lg text-slate-900 leading-tight">${car.year} ${car.make} ${car.model}</h3>
-              <p class="text-2xl font-extrabold text-brand-600 mt-2 tracking-tight">R ${(car.price || 0).toLocaleString()}</p>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-slate-600 border-t border-slate-100 pt-4 mb-5 flex-grow">
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                <span><span class="font-semibold text-slate-700">Type:</span> ${car.type || 'N/A'}</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                <span><span class="font-semibold text-slate-700">Fuel:</span> ${car.fuel || 'N/A'}</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                <span><span class="font-semibold text-slate-700">Trans:</span> ${car.transmission || 'N/A'}</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                <span><span class="font-semibold text-slate-700">Seats:</span> ${car.seats || 'N/A'}</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                <span><span class="font-semibold text-slate-700">Mileage:</span> ${(car.miles || 0).toLocaleString()} km</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                <span><span class="font-semibold text-slate-700">Power:</span> ${car.kw || 'N/A'} kW</span>
-              </div>
-              <div class="col-span-2 flex items-center gap-2 pt-1 border-t border-slate-50 mt-1">
-                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                <span><span class="font-semibold text-slate-700">Engine:</span> ${car.engine_cc ? car.engine_cc + ' cc' : 'Electric (N/A)'}</span>
-              </div>
+              <p class="text-sm font-medium text-slate-500">${esc(car.make)}</p>
+              <h3 class="font-bold text-lg text-slate-900 leading-tight">${esc(car.model)}</h3>
+              <p class="text-2xl font-extrabold text-brand-600 mt-2 tracking-tight">${rand(car.price || 0)}</p>
+              ${checked ? `<p class="text-xs text-slate-400 mt-1">Price checked ${esc(checked)}</p>` : ''}
             </div>
 
-            <a href="${car.url || '#'}" target="_blank" rel="noopener noreferrer" class="mt-auto block text-center bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold py-3 rounded-xl transition-colors duration-200 shadow-sm hover:shadow-md">
-              View on ${car.source || 'Website'}
+            <dl class="grid grid-cols-2 gap-x-4 gap-y-3 text-xs border-t border-slate-100 pt-4 mb-5 flex-grow">
+              ${specRow('Body type', car.type || '')}
+              ${specRow('Seats', seats)}
+              ${specRow('Power', power)}
+              ${specRow('Range', range)}
+              ${specRow('Battery', battery)}
+              ${specRow('Warranty', car.warranty || '')}
+            </dl>
+
+            <a href="${esc(car.url || '#')}" target="_blank" rel="noopener noreferrer"
+               class="mt-auto block text-center bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold py-3 rounded-xl transition-colors duration-200">
+              View price source
             </a>
-          </div>
-        `;
+          </div>`;
         grid.appendChild(card);
       });
     }
 
     function setupEventListeners() {
-      document.getElementById('filterMake').addEventListener('change', () => {
+      el('filterMake').addEventListener('change', () => {
         updateModels();
         applyFiltersAndSort();
       });
-      
-      document.querySelectorAll('select:not(#filterMake), input').forEach(el => {
-        el.addEventListener('input', applyFiltersAndSort);
+
+      document.querySelectorAll('select:not(#filterMake), input').forEach(control => {
+        control.addEventListener('input', applyFiltersAndSort);
       });
-      
-      document.getElementById('resetBtn').addEventListener('click', () => {
-        document.querySelectorAll('select').forEach(s => s.value = '');
-        document.querySelectorAll('input[type="number"]').forEach(i => i.value = '');
+
+      el('resetBtn').addEventListener('click', () => {
+        document.querySelectorAll('aside select').forEach(s => s.value = '');
+        document.querySelectorAll('aside input[type="number"]').forEach(i => i.value = '');
+        el('sortBy').value = 'price-asc';
         updateModels();
         applyFiltersAndSort();
       });
