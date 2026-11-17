@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SA Car Finder | Hybrid & Electric Aggregator</title>
+  <script src="https://tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <header class="bg-slate-900 text-white py-6 px-4 shadow">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center">
+      <div>
+        <h1 class="text-2xl font-bold">SA Hybrid & Electric Car Finder</h1>
+        <p class="text-xs text-slate-400 mt-1">Combining listings from Cars.co.za & AutoTrader.co.za</p>
+      </div>
+      <p id="resultCount" class="text-sm text-slate-300 mt-2 sm:mt-0 font-medium">Loading cars...</p>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-4 grid grid-cols-1 lg:grid-cols-4 gap-6 mt-4">
+    
+    <!-- FILTERS SIDEBAR -->
+    <aside class="bg-white p-5 rounded-lg shadow space-y-4 h-fit">
+      <div class="flex justify-between items-center border-b pb-2">
+        <h2 class="font-bold text-lg">Filters</h2>
+        <button id="resetBtn" class="text-xs text-blue-600 hover:underline font-medium">Reset All</button>
+      </div>
+
+      <!-- Make & Model -->
+      <div>
+        <label class="block text-xs font-semibold uppercase text-gray-500">Make</label>
+        <select id="filterMake" class="w-full mt-1 border rounded p-2 text-sm bg-white">
+          <option value="">All Makes</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold uppercase text-gray-500">Model</label>
+        <select id="filterModel" class="w-full mt-1 border rounded p-2 text-sm bg-white">
+          <option value="">All Models</option>
+        </select>
+      </div>
+
+      <!-- Body Type -->
+      <div>
+        <label class="block text-xs font-semibold uppercase text-gray-500">Body Type</label>
+        <select id="filterType" class="w-full mt-1 border rounded p-2 text-sm bg-white">
+          <option value="">All Types</option>
+          <option value="SUV">SUV / Crossover</option>
+          <option value="Bakkie">Bakkie / Pickup</option>
+          <option value="Sedan">Sedan</option>
+          <option value="Hatchback">Hatchback</option>
+          <option value="MPV">MPV / People-Mover</option>
+          <option value="Coupe">Coupe</option>
+        </select>
+      </div>
+
+      <!-- Fuel Type (Hybrid & Electric Only) -->
+      <div>
+        <label class="block text-xs font-semibold uppercase text-gray-500">Fuel Type</label>
+        <select id="filterFuel" class="w-full mt-1 border rounded p-2 text-sm bg-white">
+          <option value="">All Electric & Hybrid</option>
+          <option value="HEV">HEV (Hybrid)</option>
+          <option value="PHEV">PHEV (Plug-in Hybrid)</option>
+          <option value="Electric">Electric (EV)</option>
+          <option value="REEV">REEV (Range Extender)</option>
+        </select>
+      </div>
+
+      <!-- Transmission -->
+      <div>
+        <label class="block text-xs font-semibold uppercase text-gray-500">Transmission</label>
+        <select id="filterTransmission" class="w-full mt-1 border rounded p-2 text-sm bg-white">
+          <option value="">Auto & Manual</option>
+          <option value="Auto">Auto</option>
+          <option value="Manual">Manual</option>
+        </select>
+      </div>
+
+      <!-- Seats -->
+      <div>
+        <label class="block text-xs font-semibold uppercase text-gray-500">Seats</label>
+        <select id="filterSeats" class="w-full mt-1 border rounded p-2 text-sm bg-white">
+          <option value="">Any Seats</option>
+          <option value="5">5 Seater</option>
+          <option value="7">7 Seater</option>
+          <option value="8">8 Seater</option>
+        </select>
+      </div>
+
+      <!-- Max Price (ZAR) -->
+      <div>
+        <label class="block text-xs font-semibold uppercase text-gray-500">Max Price (R)</label>
+        <input type="number" id="filterMaxPrice" placeholder="e.g. 550000" class="w-full mt-1 border rounded p-2 text-sm" />
+      </div>
+
+      <!-- Min Year -->
+      <div>
+        <label class="block text-xs font-semibold uppercase text-gray-500">Min Year</label>
+        <input type="number" id="filterMinYear" placeholder="e.g. 2021" class="w-full mt-1 border rounded p-2 text-sm" />
+      </div>
+
+      <!-- Max Mileage (km) -->
+      <div>
+        <label class="block text-xs font-semibold uppercase text-gray-500">Max Mileage (km)</label>
+        <input type="number" id="filterMaxMiles" placeholder="e.g. 60000" class="w-full mt-1 border rounded p-2 text-sm" />
+      </div>
+
+      <!-- Max Engine Size (cc) -->
+      <div>
+        <label class="block text-xs font-semibold uppercase text-gray-500">Max Engine Size (cc)</label>
+        <input type="number" id="filterMaxEngine" placeholder="e.g. 2000" class="w-full mt-1 border rounded p-2 text-sm" />
+      </div>
+
+      <!-- Min Power (kW) -->
+      <div>
+        <label class="block text-xs font-semibold uppercase text-gray-500">Min Power (kW)</label>
+        <input type="number" id="filterMinKw" placeholder="e.g. 110" class="w-full mt-1 border rounded p-2 text-sm" />
+      </div>
+    </aside>
+
+    <!-- RESULTS & SORTING -->
+    <section class="lg:col-span-3 space-y-4">
+      <div class="bg-white p-4 rounded-lg shadow flex flex-col sm:flex-row justify-between items-center gap-2">
+        <span class="text-sm font-medium text-gray-600">Sort results by:</span>
+        <select id="sortBy" class="border rounded p-2 text-sm w-full sm:w-auto bg-white">
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="year-desc">Year: Newest First</option>
+          <option value="miles-asc">Mileage (km): Lowest First</option>
+          <option value="kw-desc">Power (kW): Highest First</option>
+        </select>
+      </div>
+
+      <!-- CAR CARDS GRID -->
+      <div id="carGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
+    </section>
+
+  </main>
+
+  <script>
+    let allCars = [];
+
+    async function loadCars() {
+      try {
+        const res = await fetch('cars.json');
+        allCars = await res.json();
+        populateDropdowns(allCars);
+        applyFiltersAndSort();
+      } catch (err) {
+        document.getElementById('resultCount').innerText = 'Error loading cars.json';
+      }
+    }
+
+    function populateDropdowns(cars) {
+      const makeSelect = document.getElementById('filterMake');
+      const makes = [...new Set(cars.map(c => c.make))].sort();
+      makes.forEach(make => {
+        const opt = document.createElement('option');
+        opt.value = make;
+        opt.textContent = make;
+        makeSelect.appendChild(opt);
+      });
+      updateModels();
+    }
+
+    function updateModels() {
+      const selectedMake = document.getElementById('filterMake').value;
+      const modelSelect = document.getElementById('filterModel');
+      modelSelect.innerHTML = '<option value="">All Models</option>';
+
+      const filtered = selectedMake ? allCars.filter(c => c.make === selectedMake) : allCars;
+      const models = [...new Set(filtered.map(c => c.model))].sort();
+      models.forEach(model => {
+        const opt = document.createElement('option');
+        opt.value = model;
+        opt.textContent = model;
+        modelSelect.appendChild(opt);
+      });
+    }
+
+    function applyFiltersAndSort() {
+      const make = document.getElementById('filterMake').value;
+      const model = document.getElementById('filterModel').value;
+      const type = document.getElementById('filterType').value;
+      const fuel = document.getElementById('filterFuel').value;
+      const trans = document.getElementById('filterTransmission').value;
+      const seats = document.getElementById('filterSeats').value;
+      const maxPrice = parseFloat(document.getElementById('filterMaxPrice').value);
+      const minYear = parseInt(document.getElementById('filterMinYear').value);
+      const maxMiles = parseFloat(document.getElementById('filterMaxMiles').value);
+      const maxEngine = parseFloat(document.getElementById('filterMaxEngine').value);
+      const minKw = parseFloat(document.getElementById('filterMinKw').value);
+      const sortBy = document.getElementById('sortBy').value;
+
+      let results = allCars.filter(car => {
+        if (make && car.make !== make) return false;
+        if (model && car.model !== model) return false;
+        if (type && car.type.toLowerCase() !== type.toLowerCase()) return false;
+        if (fuel && car.fuel.toLowerCase() !== fuel.toLowerCase()) return false;
+        if (trans && car.transmission.toLowerCase() !== trans.toLowerCase()) return false;
+        if (seats && String(car.seats) !== seats) return false;
+        if (!isNaN(maxPrice) && car.price > maxPrice) return false;
+        if (!isNaN(minYear) && car.year < minYear) return false;
+        if (!isNaN(maxMiles) && car.miles > maxMiles) return false;
+        if (!isNaN(maxEngine) && car.engine_cc > maxEngine) return false;
+        if (!isNaN(minKw) && car.kw < minKw) return false;
+        return true;
+      });
+
+      results.sort((a, b) => {
+        if (sortBy === 'price-asc') return a.price - b.price;
+        if (sortBy === 'price-desc') return b.price - a.price;
+        if (sortBy === 'year-desc') return b.year - a.year;
+        if (sortBy === 'miles-asc') return a.miles - b.miles;
+        if (sortBy === 'kw-desc') return b.kw - a.kw;
+        return 0;
+      });
+
+      renderCars(results);
+    }
+
+    function renderCars(cars) {
+      const grid = document.getElementById('carGrid');
+      document.getElementById('resultCount').innerText = `Showing ${cars.length} car(s)`;
+      grid.innerHTML = '';
+
+      if (cars.length === 0) {
+        grid.innerHTML = '<p class="col-span-full text-center py-10 text-gray-500">No cars match your selected filters.</p>';
+        return;
+      }
+
+      cars.forEach(car => {
+const card = document.createElement('div');
+card.className = 'bg-white rounded-lg shadow overflow-hidden flex flex-col justify-between';
+card.innerHTML = <div> <div class="relative"> <img src="${car.image}" alt="${car.make} ${car.model}" class="w-full h-48 object-cover" /> <span class="absolute top-2 right-2 bg-slate-900/80 text-white text-xs px-2 py-1 rounded">${car.source}</span> </div> <div class="p-4"> <h3 class="font-bold text-lg">${car.year} ${car.make} ${car.model}</h3> <p class="text-xl font-extrabold text-blue-600 mt-1">R ${car.price.toLocaleString()}</p> <div class="mt-3 grid grid-cols-2 gap-y-1 text-xs text-gray-600 border-t pt-3"> <span><strong>Type:</strong> ${car.type}</span> <span><strong>Fuel:</strong> ${car.fuel}</span> <span><strong>Trans:</strong> ${car.transmission}</span> <span><strong>Seats:</strong> ${car.seats} Seater</span> <span><strong>Mileage:</strong> ${car.miles.toLocaleString()} km</span> <span><strong>Power:</strong> ${car.kw} kW</span> <span><strong>Engine:</strong> ${car.engine_cc ? car.engine_cc + ' cc' : 'N/A (EV)'}</span> </div> </div> </div> <div class="p-4 pt-0"> <a href="${car.url}" target="_blank" rel="noopener" class="block text-center bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold py-2 rounded transition"> View on ${car.source} </a> </div>;
+grid.appendChild(card);
+});
+}
+document.getElementById('filterMake').addEventListener('change', () => {
+updateModels();
+applyFiltersAndSort();
+});
+document.querySelectorAll('select:not(#filterMake), input').forEach(el => {
+el.addEventListener('input', applyFiltersAndSort);
+});
+document.getElementById('resetBtn').addEventListener('click', () => {
+document.querySelectorAll('select').forEach(s => s.value = '');
+document.querySelectorAll('input').forEach(i => i.value = '');
+updateModels();
+applyFiltersAndSort();
+});
+loadCars();
+</script>
