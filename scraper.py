@@ -37,14 +37,14 @@ USER_AGENT = (
 # ---------------------------------------------------------------------------
 CARS_CO_ZA_SEARCHES = [
     # cars.co.za search with fuel-type refinements
-    "https://www.cars.co.za/search/?new_or_used=u&fuel_type=hybrid",
-    "https://www.cars.co.za/search/?new_or_used=u&fuel_type=electric",
-    "https://www.cars.co.za/search/?new_or_used=u&fuel_type=plug-in-hybrid",
+    "https://www.cars.co.za/usedcars/?sort=sort_rank&price_type=listing_price&transmission=Automatic&fuel_type=h&P=1",
+    "https://www.cars.co.za/usedcars/?sort=sort_rank&price_type=listing_price&transmission=Automatic&fuel_type=e&P=1",
+    "https://www.cars.co.za/usedcars/?sort=sort_rank&price_type=listing_price&transmission=Automatic&fuel_type=x&P=1",
 ]
 
 AUTOTRADER_SEARCHES = [
     # autotrader.co.za primary fuel type "Hybrid-Electric"
-    "https://www.autotrader.co.za/car-search-results?pagenumber={page}&primaryfueltype=Hybrid-Electric&sortorder=Price-Ascending",
+    "https://www.autotrader.co.za/cars-for-sale?fueltype=Electric&fueltype=Hybrid",
 ]
 
 MAX_PAGES_CARS_CO_ZA = 1          # each query above is one page of results
