@@ -1,343 +1,278 @@
 <!DOCTYPE html>
-<html lang="en-ZA">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AlternateOption | New Chinese Hybrid & Electric Cars in South Africa</title>
-  <meta name="description" content="Compare brand new Chinese hybrid, plug-in hybrid and electric cars on sale in South Africa." />
-
+  <title>AlternateOption | Hybrid and Electric Cars Worldwide</title>
+  <meta name="description" content="Compare plug-in hybrid and electric cars from around the world: range, power, battery, seats and the countries each is sold in." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
-          colors: {
-            brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 900: '#1e3a8a' }
-          }
-        }
-      }
-    }
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] },
+      colors: { brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 900: '#1e3a8a' } } } } }
   </script>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
-  <header class="bg-slate-900 text-white shadow-lg sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-3">
-      <div>
-        <h1 class="text-xl sm:text-2xl font-bold tracking-tight">AlternateOption</h1>
-        <p class="text-xs sm:text-sm text-slate-400 mt-1">New Chinese hybrid and electric cars in South Africa</p>
-      </div>
-      <div class="bg-slate-800 px-4 py-2 rounded-full border border-slate-700">
-        <p id="resultCount" class="text-sm font-medium text-slate-200">Loading cars...</p>
-      </div>
+<header class="bg-slate-900 text-white shadow-lg sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+    <div>
+      <h1 class="text-xl sm:text-2xl font-bold tracking-tight">AlternateOption</h1>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">Hybrid and electric cars worldwide</p>
     </div>
-  </header>
+    <div class="bg-slate-800 px-4 py-2 rounded-full border border-slate-700">
+      <p id="resultCount" class="text-sm font-medium text-slate-200">Loading cars...</p>
+    </div>
+  </div>
+</header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 lg:grid-cols-4 gap-8">
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-    <!-- FILTERS -->
-    <aside class="lg:col-span-1">
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 lg:sticky lg:top-24 space-y-5">
-        <div class="flex justify-between items-center border-b border-slate-100 pb-4">
-          <h2 class="font-bold text-lg text-slate-900">Filters</h2>
-          <button id="resetBtn" class="text-xs font-semibold text-brand-600 hover:text-brand-900 hover:underline transition-colors">Reset all</button>
-        </div>
-
-        <div>
-          <label for="filterMake" class="block text-xs font-semibold text-slate-500 mb-1.5">Brand</label>
-          <select id="filterMake" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-            <option value="">All brands</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="filterModel" class="block text-xs font-semibold text-slate-500 mb-1.5">Model</label>
-          <select id="filterModel" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-            <option value="">All models</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="filterType" class="block text-xs font-semibold text-slate-500 mb-1.5">Body type</label>
-          <select id="filterType" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-            <option value="">All types</option>
-            <option value="SUV">SUV / Crossover</option>
-            <option value="Bakkie">Bakkie / Pickup</option>
-            <option value="Sedan">Sedan</option>
-            <option value="Hatchback">Hatchback</option>
-            <option value="MPV">MPV / People-mover</option>
-            <option value="Coupe">Coupe</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="filterFuel" class="block text-xs font-semibold text-slate-500 mb-1.5">Fuel type</label>
-          <select id="filterFuel" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-            <option value="">Hybrid, plug-in and electric</option>
-            <option value="HEV">HEV (hybrid)</option>
-            <option value="PHEV">PHEV (plug-in hybrid)</option>
-            <option value="Electric">Electric (EV)</option>
-            <option value="REEV">REEV (range extender)</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="filterSeats" class="block text-xs font-semibold text-slate-500 mb-1.5">Seats</label>
-          <select id="filterSeats" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-            <option value="">Any seats</option>
-            <option value="5">5 seater</option>
-            <option value="7">7 seater</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="filterMaxPrice" class="block text-xs font-semibold text-slate-500 mb-1.5">Max price (R)</label>
-          <input type="number" id="filterMaxPrice" placeholder="e.g. 600000" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none" />
-        </div>
-
-        <div>
-          <label for="filterMinRange" class="block text-xs font-semibold text-slate-500 mb-1.5">Min electric range (km)</label>
-          <input type="number" id="filterMinRange" placeholder="e.g. 400" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none" />
-        </div>
-
-        <div>
-          <label for="filterMinKw" class="block text-xs font-semibold text-slate-500 mb-1.5">Min power (kW)</label>
-          <input type="number" id="filterMinKw" placeholder="e.g. 150" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none" />
-        </div>
-
-        <p class="text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
-          Range, power and seats are still being added. Cars without that detail stay in the results when you filter on it.
-        </p>
-      </div>
-    </aside>
-
-    <!-- RESULTS -->
-    <section class="lg:col-span-3 space-y-6">
-      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-3">
-        <label for="sortBy" class="text-sm font-semibold text-slate-600">Sort by</label>
-        <select id="sortBy" class="border border-slate-200 rounded-xl px-3 py-2 text-sm w-full sm:w-auto bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all outline-none cursor-pointer">
-          <option value="price-asc">Price: low to high</option>
-          <option value="price-desc">Price: high to low</option>
-          <option value="range-desc">Range: longest first</option>
-          <option value="kw-desc">Power: highest first</option>
-          <option value="brand-asc">Brand: A to Z</option>
-        </select>
+  <aside class="lg:col-span-1">
+    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 lg:sticky lg:top-24 space-y-4">
+      <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+        <h2 class="font-bold text-lg text-slate-900">Filters</h2>
+        <button id="resetBtn" class="text-xs font-semibold text-brand-600 hover:text-brand-900 hover:underline">Reset all</button>
       </div>
 
-      <div id="carGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+      <div><label for="q" class="block text-xs font-semibold text-slate-500 mb-1.5">Search</label>
+        <input id="q" type="search" placeholder="e.g. Seal, Tiggo" class="field" /></div>
+      <div><label for="fMarket" class="block text-xs font-semibold text-slate-500 mb-1.5">Market (country)</label>
+        <select id="fMarket" class="field"><option value="">Worldwide</option></select></div>
+      <div><label for="fMake" class="block text-xs font-semibold text-slate-500 mb-1.5">Brand</label>
+        <select id="fMake" class="field"><option value="">All brands</option></select></div>
+      <div><label for="fModel" class="block text-xs font-semibold text-slate-500 mb-1.5">Model</label>
+        <select id="fModel" class="field"><option value="">All models</option></select></div>
+      <div><label for="fType" class="block text-xs font-semibold text-slate-500 mb-1.5">Body type</label>
+        <select id="fType" class="field">
+          <option value="">All types</option><option>SUV</option><option>Sedan</option><option>Hatchback</option>
+          <option>Pickup</option><option>MPV</option><option>Coupe</option></select></div>
+      <div><label for="fFuel" class="block text-xs font-semibold text-slate-500 mb-1.5">Fuel type</label>
+        <select id="fFuel" class="field">
+          <option value="">Hybrid, plug-in and electric</option><option value="HEV">HEV (hybrid)</option>
+          <option value="PHEV">PHEV (plug-in hybrid)</option><option value="Electric">Electric (EV)</option></select></div>
+      <div><label for="fSeats" class="block text-xs font-semibold text-slate-500 mb-1.5">Seats</label>
+        <select id="fSeats" class="field"><option value="">Any seats</option><option value="2">2</option><option value="4">4</option>
+          <option value="5">5</option><option value="7">7 or more</option></select></div>
+      <div><label for="fRange" class="block text-xs font-semibold text-slate-500 mb-1.5">Min range (km)</label>
+        <input type="number" id="fRange" placeholder="e.g. 400" class="field" /></div>
+      <div><label for="fKw" class="block text-xs font-semibold text-slate-500 mb-1.5">Min power (kW)</label>
+        <input type="number" id="fKw" placeholder="e.g. 150" class="field" /></div>
+      <div><label for="fPrice" class="block text-xs font-semibold text-slate-500 mb-1.5">Max price (local currency)</label>
+        <input type="number" id="fPrice" placeholder="Only cars with a listed price" class="field" /></div>
+      <label class="flex items-center gap-2 text-sm text-slate-600"><input type="checkbox" id="fPriced" /> Only cars with a listed price</label>
 
-      <p class="text-xs text-slate-500 leading-relaxed">
-        Prices are new-car "from" prices in rand, including VAT, taken from South African motoring sites and price lists on the date shown on each card.
-        They change often and may differ by dealer, so confirm the price and specification with a dealer before you buy.
+      <p class="text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
+        Specs come from the open dataset linked below. Cars without a given detail stay in the results when you filter on it.
       </p>
-    </section>
-  </main>
+    </div>
+  </aside>
 
-  <script>
-    let allCars = [];
+  <section class="lg:col-span-3 space-y-6">
+    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <label for="sortBy" class="text-sm font-semibold text-slate-600">Sort by</label>
+      <select id="sortBy" class="field sm:w-auto">
+        <option value="brand-asc">Brand: A to Z</option>
+        <option value="range-desc">Range: longest first</option>
+        <option value="kw-desc">Power: highest first</option>
+        <option value="price-asc">Price: low to high</option>
+        <option value="price-desc">Price: high to low</option>
+        <option value="year-desc">Newest first</option>
+      </select>
+    </div>
 
-    const FUEL_LABELS = {
-      HEV: 'Hybrid',
-      PHEV: 'Plug-in hybrid',
-      REEV: 'Range extender',
-      Electric: 'Electric'
-    };
-    const FUEL_BADGE = {
-      HEV: 'bg-emerald-100 text-emerald-800',
-      PHEV: 'bg-sky-100 text-sky-800',
-      REEV: 'bg-violet-100 text-violet-800',
-      Electric: 'bg-blue-100 text-blue-800'
-    };
+    <div id="carGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+    <div class="text-center"><button id="moreBtn" class="hidden bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold px-6 py-3 rounded-xl transition-colors">Show more</button></div>
 
-    const el = id => document.getElementById(id);
-    const num = v => { const n = Number(v); return Number.isFinite(n) && n > 0 ? n : 0; };
-    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-    const rand = n => 'R ' + Math.round(n).toLocaleString('en-ZA').replace(/\u00a0/g, ' ');
+    <p class="text-xs text-slate-500 leading-relaxed">
+      Specifications are from <a class="underline" href="https://github.com/open-ev-data/open-ev-data-dataset" target="_blank" rel="noopener noreferrer">Open EV Data</a>
+      (CDLA-Permissive-2.0) and describe the model in the markets shown, which may differ from a specific country's version.
+      Range is the rated figure under the test cycle shown (WLTP, EPA, NEDC or CLTC); cycles are not directly comparable, and for plug-in hybrids it is electric-only range.
+      Prices are entered by hand from local sources on the date shown, include local taxes where stated by the source, and change often.
+      Confirm price and specification with a dealer before you buy.
+    </p>
+  </section>
+</main>
 
-    function formatDate(iso) {
-      if (!iso) return '';
-      const d = new Date(iso + 'T00:00:00');
-      if (isNaN(d)) return '';
-      return d.toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' });
-    }
+<style>.field{width:100%;border:1px solid #e2e8f0;border-radius:.75rem;padding:.6rem .75rem;font-size:.875rem;background:#f8fafc;outline:none}
+.field:focus{background:#fff;border-color:#3b82f6;box-shadow:0 0 0 2px rgba(59,130,246,.2)}</style>
 
-    async function loadCars() {
-      try {
-        const res = await fetch('cars.json', { cache: 'no-cache' });
-        if (!res.ok) throw new Error('Failed to fetch');
-        allCars = await res.json();
-        populateDropdowns();
-        applyFiltersAndSort();
-      } catch (err) {
-        el('resultCount').innerText = 'Could not load cars';
-        el('carGrid').innerHTML = `
-          <div class="col-span-full text-center py-16">
-            <h3 class="text-lg font-semibold text-slate-900">Cars could not be loaded</h3>
-            <p class="text-slate-500 mt-1">Check that <code class="bg-slate-100 px-1 py-0.5 rounded text-xs">cars.json</code> is in the same folder as this page, then refresh.</p>
-          </div>`;
+<script>
+let allCars = [];
+let shown = 0;
+const PAGE = 60;
+let current = [];
+
+const FUEL_LABELS = { HEV: 'Hybrid', PHEV: 'Plug-in hybrid', REEV: 'Range extender', Electric: 'Electric' };
+const FUEL_BADGE = { HEV: 'bg-emerald-100 text-emerald-800', PHEV: 'bg-sky-100 text-sky-800',
+  REEV: 'bg-violet-100 text-violet-800', Electric: 'bg-blue-100 text-blue-800' };
+
+const el = id => document.getElementById(id);
+const num = v => { const n = Number(v); return Number.isFinite(n) && n > 0 ? n : 0; };
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+let regionNames; try { regionNames = new Intl.DisplayNames(['en'], { type: 'region' }); } catch (e) {}
+const country = code => { try { return regionNames ? regionNames.of(code) : code; } catch (e) { return code; } };
+const money = (n, cur) => { try { return new Intl.NumberFormat('en', { style: 'currency', currency: cur, maximumFractionDigits: 0 }).format(n); } catch (e) { return cur + ' ' + Math.round(n).toLocaleString('en'); } };
+
+function formatDate(iso) {
+  const d = new Date((iso || '') + 'T00:00:00');
+  return isNaN(d) ? '' : d.toLocaleDateString('en', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+// The price to show for the selected market (or the first listed price when "Worldwide").
+function priceFor(car, market) {
+  const p = car.prices || {};
+  const code = market && p[market] ? market : (market ? null : Object.keys(p)[0]);
+  return code ? { code, ...p[code] } : null;
+}
+
+async function loadCars() {
+  try {
+    const res = await fetch('cars.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('Failed to fetch');
+    allCars = await res.json();
+    populate();
+    apply();
+  } catch (err) {
+    el('resultCount').innerText = 'Could not load cars';
+    el('carGrid').innerHTML = `<div class="col-span-full text-center py-16"><h3 class="text-lg font-semibold text-slate-900">Cars could not be loaded</h3>
+      <p class="text-slate-500 mt-1">Check that <code class="bg-slate-100 px-1 rounded text-xs">cars.json</code> is in the same folder as this page.</p></div>`;
+  }
+}
+
+function fillSelect(id, values, labeler) {
+  const sel = el(id);
+  values.forEach(v => { const o = document.createElement('option'); o.value = v; o.textContent = labeler ? labeler(v) : v; sel.appendChild(o); });
+}
+
+function populate() {
+  fillSelect('fMake', [...new Set(allCars.map(c => c.make))].sort());
+  const markets = [...new Set(allCars.flatMap(c => c.markets || []))];
+  fillSelect('fMarket', markets.sort((a, b) => country(a).localeCompare(country(b))), c => country(c));
+  updateModels();
+}
+
+function updateModels() {
+  const make = el('fMake').value;
+  const sel = el('fModel');
+  sel.innerHTML = '<option value="">All models</option>';
+  const pool = make ? allCars.filter(c => c.make === make) : allCars;
+  fillSelect('fModel', [...new Set(pool.map(c => c.model))].sort());
+}
+
+function apply() {
+  const f = {
+    q: el('q').value.trim().toLowerCase(), market: el('fMarket').value, make: el('fMake').value, model: el('fModel').value,
+    type: el('fType').value, fuel: el('fFuel').value, seats: el('fSeats').value,
+    range: parseFloat(el('fRange').value), kw: parseFloat(el('fKw').value), price: parseFloat(el('fPrice').value),
+    priced: el('fPriced').checked
+  };
+  const sortBy = el('sortBy').value;
+
+  current = allCars.filter(c => {
+    if (f.q && !`${c.make} ${c.model} ${c.trim}`.toLowerCase().includes(f.q)) return false;
+    if (f.market && !(c.markets || []).includes(f.market)) return false;
+    if (f.make && c.make !== f.make) return false;
+    if (f.model && c.model !== f.model) return false;
+    if (f.type && c.type !== f.type) return false;
+    if (f.fuel && c.fuel !== f.fuel) return false;
+    if (f.seats && num(c.seats)) { if (f.seats === '7' ? c.seats < 7 : String(c.seats) !== f.seats) return false; }
+    if (!isNaN(f.range) && num(c.range_km) && c.range_km < f.range) return false;
+    if (!isNaN(f.kw) && num(c.kw) && c.kw < f.kw) return false;
+    const p = priceFor(c, f.market);
+    if ((f.priced || !isNaN(f.price)) && !p) return false;
+    if (!isNaN(f.price) && p && p.price > f.price) return false;
+    return true;
+  });
+
+  const pv = c => { const p = priceFor(c, f.market); return p ? p.price : null; };
+  current.sort((a, b) => {
+    switch (sortBy) {
+      case 'range-desc': return num(b.range_km) - num(a.range_km);
+      case 'kw-desc': return num(b.kw) - num(a.kw);
+      case 'year-desc': return num(b.year) - num(a.year) || a.make.localeCompare(b.make);
+      case 'price-asc': case 'price-desc': {
+        const x = pv(a), y = pv(b);
+        if (x === null && y === null) return 0;
+        if (x === null) return 1;
+        if (y === null) return -1;
+        return sortBy === 'price-asc' ? x - y : y - x;
       }
+      default: return a.make.localeCompare(b.make) || a.model.localeCompare(b.model) || num(a.kw) - num(b.kw);
     }
+  });
 
-    function populateDropdowns() {
-      const makeSelect = el('filterMake');
-      [...new Set(allCars.map(c => c.make))].sort().forEach(make => {
-        const opt = document.createElement('option');
-        opt.value = make;
-        opt.textContent = make;
-        makeSelect.appendChild(opt);
-      });
-      updateModels();
-    }
+  shown = 0;
+  el('carGrid').innerHTML = '';
+  el('resultCount').innerText = `${current.length} car${current.length !== 1 ? 's' : ''} found`;
+  if (!current.length) {
+    el('carGrid').innerHTML = `<div class="col-span-full text-center py-16 bg-white rounded-2xl border border-slate-200 border-dashed">
+      <h3 class="text-lg font-semibold text-slate-900">No cars match these filters</h3><p class="text-slate-500 mt-1">Loosen a filter or choose Reset all.</p></div>`;
+  }
+  renderMore();
+}
 
-    function updateModels() {
-      const selectedMake = el('filterMake').value;
-      const modelSelect = el('filterModel');
-      modelSelect.innerHTML = '<option value="">All models</option>';
-      const pool = selectedMake ? allCars.filter(c => c.make === selectedMake) : allCars;
-      [...new Set(pool.map(c => c.model))].sort().forEach(model => {
-        const opt = document.createElement('option');
-        opt.value = model;
-        opt.textContent = model;
-        modelSelect.appendChild(opt);
-      });
-    }
+function spec(label, value) {
+  const known = value !== '' && value != null;
+  return `<div><dt class="text-slate-400">${label}</dt><dd class="font-semibold ${known ? 'text-slate-800' : 'text-slate-400'}">${known ? esc(value) : 'Not listed'}</dd></div>`;
+}
 
-    function applyFiltersAndSort() {
-      const make = el('filterMake').value;
-      const model = el('filterModel').value;
-      const type = el('filterType').value;
-      const fuel = el('filterFuel').value;
-      const seats = el('filterSeats').value;
-      const maxPrice = parseFloat(el('filterMaxPrice').value);
-      const minRange = parseFloat(el('filterMinRange').value);
-      const minKw = parseFloat(el('filterMinKw').value);
-      const sortBy = el('sortBy').value;
+function renderMore() {
+  const market = el('fMarket').value;
+  const grid = el('carGrid');
+  current.slice(shown, shown + PAGE).forEach(car => {
+    const card = document.createElement('article');
+    card.className = 'bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow flex flex-col';
+    const label = FUEL_LABELS[car.fuel] || car.fuel || '';
+    const badge = FUEL_BADGE[car.fuel] || 'bg-slate-100 text-slate-700';
+    const p = priceFor(car, market);
+    const mk = (car.markets || []);
+    const chips = mk.slice(0, 6).map(m => `<span class="bg-slate-100 text-slate-600 rounded px-1.5 py-0.5">${esc(m)}</span>`).join(' ')
+      + (mk.length > 6 ? ` <span class="text-slate-400">+${mk.length - 6}</span>` : '');
+    const link = (p && p.url) || car.url;
+    card.innerHTML = `
+      <div class="relative w-full aspect-[16/7] bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
+        <span class="text-2xl font-bold text-slate-400 tracking-tight">${esc(car.make)}</span>
+        <span class="absolute top-3 left-3 ${badge} text-xs font-semibold px-2.5 py-1 rounded-lg shadow-sm">${esc(label)}</span>
+      </div>
+      <div class="p-5 flex flex-col flex-grow">
+        <div class="mb-4">
+          <p class="text-sm font-medium text-slate-500">${esc(car.make)}${car.year ? ' · ' + esc(car.year) : ''}</p>
+          <h3 class="font-bold text-lg text-slate-900 leading-tight">${esc(car.model)}${car.trim ? ' <span class="font-medium text-slate-500">' + esc(car.trim) + '</span>' : ''}</h3>
+          ${p ? `<p class="text-2xl font-extrabold text-brand-600 mt-2 tracking-tight">${money(p.price, p.currency)}</p>
+                 <p class="text-xs text-slate-400 mt-1">${esc(country(p.code))} price${p.checked ? ', checked ' + esc(formatDate(p.checked)) : ''}</p>`
+              : `<p class="text-sm font-semibold text-slate-400 mt-2">Price not listed</p>`}
+        </div>
+        <dl class="grid grid-cols-2 gap-x-4 gap-y-3 text-xs border-t border-slate-100 pt-4 mb-4 flex-grow">
+          ${spec('Body type', car.type)}
+          ${spec('Seats', num(car.seats) ? String(car.seats) : '')}
+          ${spec('Power', num(car.kw) ? car.kw + ' kW' : '')}
+          ${spec(car.fuel === 'PHEV' ? 'Electric range' : 'Range', num(car.range_km) ? car.range_km + ' km' + (car.range_cycle ? ' (' + car.range_cycle + ')' : '') : '')}
+          ${spec('Battery', num(car.battery_kwh) ? car.battery_kwh + ' kWh' : '')}
+          ${spec('Max DC charge', num(car.dc_kw) ? car.dc_kw + ' kW' : '')}
+        </dl>
+        <div class="text-xs mb-4 flex flex-wrap gap-1 items-center"><span class="text-slate-400 mr-1">Sold in</span>${chips || '<span class="text-slate-400">Not listed</span>'}</div>
+        ${link ? `<a href="${esc(link)}" target="_blank" rel="noopener noreferrer" class="mt-auto block text-center bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold py-3 rounded-xl transition-colors">${p ? 'View price source' : 'View source'}</a>` : ''}
+      </div>`;
+    grid.appendChild(card);
+  });
+  shown = Math.min(shown + PAGE, current.length);
+  el('moreBtn').classList.toggle('hidden', shown >= current.length);
+}
 
-      // A filter only removes a car when the car's value is known and fails it.
-      const results = allCars.filter(car => {
-        if (make && car.make !== make) return false;
-        if (model && car.model !== model) return false;
-        if (type && String(car.type || '').toLowerCase() !== type.toLowerCase()) return false;
-        if (fuel && String(car.fuel || '').toLowerCase() !== fuel.toLowerCase()) return false;
-        if (seats && num(car.seats) && String(car.seats) !== seats) return false;
-        if (!isNaN(maxPrice) && car.price > maxPrice) return false;
-        if (!isNaN(minRange) && num(car.range_km) && car.range_km < minRange) return false;
-        if (!isNaN(minKw) && num(car.kw) && car.kw < minKw) return false;
-        return true;
-      });
-
-      results.sort((a, b) => {
-        switch (sortBy) {
-          case 'price-desc': return b.price - a.price;
-          case 'range-desc': return num(b.range_km) - num(a.range_km);
-          case 'kw-desc': return num(b.kw) - num(a.kw);
-          case 'brand-asc': return a.make.localeCompare(b.make) || a.price - b.price;
-          default: return a.price - b.price;
-        }
-      });
-
-      renderCars(results);
-    }
-
-    function specRow(label, value) {
-      const known = value !== '' && value !== null && value !== undefined;
-      return `<div><dt class="text-slate-400">${label}</dt><dd class="font-semibold ${known ? 'text-slate-800' : 'text-slate-400'}">${known ? esc(value) : 'Not listed'}</dd></div>`;
-    }
-
-    function renderCars(cars) {
-      const grid = el('carGrid');
-      el('resultCount').innerText = `${cars.length} car${cars.length !== 1 ? 's' : ''} found`;
-      grid.innerHTML = '';
-
-      if (cars.length === 0) {
-        grid.innerHTML = `
-          <div class="col-span-full text-center py-16 bg-white rounded-2xl border border-slate-200 border-dashed">
-            <h3 class="text-lg font-semibold text-slate-900">No cars match these filters</h3>
-            <p class="text-slate-500 mt-1">Raise the maximum price or choose Reset all.</p>
-          </div>`;
-        return;
-      }
-
-      cars.forEach(car => {
-        const card = document.createElement('article');
-        card.className = 'bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 flex flex-col';
-
-        const fuelLabel = FUEL_LABELS[car.fuel] || car.fuel || '';
-        const fuelClass = FUEL_BADGE[car.fuel] || 'bg-slate-100 text-slate-700';
-        const alt = `${car.make} ${car.model}`;
-
-        const media = car.image && car.image.trim()
-          ? `<img src="${esc(car.image)}" alt="${esc(alt)}" class="w-full aspect-video object-cover bg-slate-100" loading="lazy" />`
-          : `<div class="w-full aspect-video bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center" role="img" aria-label="${esc(alt)}">
-               <span class="text-2xl font-bold text-slate-400 tracking-tight">${esc(car.make)}</span>
-             </div>`;
-
-        const range = num(car.range_km) ? `${car.range_km} km` : '';
-        const battery = num(car.battery_kwh) ? `${car.battery_kwh} kWh` : '';
-        const power = num(car.kw) ? `${car.kw} kW` : '';
-        const seats = num(car.seats) ? String(car.seats) : '';
-        const checked = formatDate(car.price_checked);
-
-        card.innerHTML = `
-          <div class="relative">
-            ${media}
-            <span class="absolute top-3 left-3 ${fuelClass} text-xs font-semibold px-2.5 py-1 rounded-lg shadow-sm">${esc(fuelLabel)}</span>
-          </div>
-
-          <div class="p-5 flex flex-col flex-grow">
-            <div class="mb-4">
-              <p class="text-sm font-medium text-slate-500">${esc(car.make)}</p>
-              <h3 class="font-bold text-lg text-slate-900 leading-tight">${esc(car.model)}</h3>
-              <p class="text-2xl font-extrabold text-brand-600 mt-2 tracking-tight">${rand(car.price || 0)}</p>
-              ${checked ? `<p class="text-xs text-slate-400 mt-1">Price checked ${esc(checked)}</p>` : ''}
-            </div>
-
-            <dl class="grid grid-cols-2 gap-x-4 gap-y-3 text-xs border-t border-slate-100 pt-4 mb-5 flex-grow">
-              ${specRow('Body type', car.type || '')}
-              ${specRow('Seats', seats)}
-              ${specRow('Power', power)}
-              ${specRow('Range', range)}
-              ${specRow('Battery', battery)}
-              ${specRow('Warranty', car.warranty || '')}
-            </dl>
-
-            <a href="${esc(car.url || '#')}" target="_blank" rel="noopener noreferrer"
-               class="mt-auto block text-center bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold py-3 rounded-xl transition-colors duration-200">
-              View price source
-            </a>
-          </div>`;
-        grid.appendChild(card);
-      });
-    }
-
-    function setupEventListeners() {
-      el('filterMake').addEventListener('change', () => {
-        updateModels();
-        applyFiltersAndSort();
-      });
-
-      document.querySelectorAll('select:not(#filterMake), input').forEach(control => {
-        control.addEventListener('input', applyFiltersAndSort);
-      });
-
-      el('resetBtn').addEventListener('click', () => {
-        document.querySelectorAll('aside select').forEach(s => s.value = '');
-        document.querySelectorAll('aside input[type="number"]').forEach(i => i.value = '');
-        el('sortBy').value = 'price-asc';
-        updateModels();
-        applyFiltersAndSort();
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      setupEventListeners();
-      loadCars();
-    });
-  </script>
+document.addEventListener('DOMContentLoaded', () => {
+  el('fMake').addEventListener('change', () => { updateModels(); apply(); });
+  document.querySelectorAll('aside select:not(#fMake), aside input, #sortBy').forEach(c => c.addEventListener('input', apply));
+  el('moreBtn').addEventListener('click', renderMore);
+  el('resetBtn').addEventListener('click', () => {
+    document.querySelectorAll('aside select').forEach(s => s.value = '');
+    document.querySelectorAll('aside input').forEach(i => { if (i.type === 'checkbox') i.checked = false; else i.value = ''; });
+    el('sortBy').value = 'brand-asc'; updateModels(); apply();
+  });
+  loadCars();
+});
+</script>
 </body>
 </html>

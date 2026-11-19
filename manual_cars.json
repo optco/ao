@@ -1,0 +1,704 @@
+[
+  {
+    "id": "za-geely-e2",
+    "make": "Geely",
+    "model": "E2",
+    "trim": "",
+    "year": 2026,
+    "type": "Hatchback",
+    "fuel": "Electric",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 339900,
+        "currency": "ZAR",
+        "url": "https://www.autotrader.co.za/cars/news-and-advice/buying-a-car/new-chinese-cars-under-r500k-in-south-africa-the-mid-year-2026-wrap/17188",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-byd-dolphin-surf",
+    "make": "BYD",
+    "model": "Dolphin Surf",
+    "trim": "",
+    "year": 2026,
+    "type": "Hatchback",
+    "fuel": "Electric",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 341900,
+        "currency": "ZAR",
+        "url": "https://vehiclesa.co.za/brands/byd",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-chery-q-comfort",
+    "make": "Chery",
+    "model": "Q Comfort",
+    "trim": "",
+    "year": 2026,
+    "type": "Hatchback",
+    "fuel": "Electric",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 349900,
+        "currency": "ZAR",
+        "url": "https://www.cars.co.za/motoring-news/5-most-affordable-evs-in-south-africa-2026/343038/",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-chery-q-elite",
+    "make": "Chery",
+    "model": "Q Elite",
+    "trim": "",
+    "year": 2026,
+    "type": "Hatchback",
+    "fuel": "Electric",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 389900,
+        "currency": "ZAR",
+        "url": "https://www.cars.co.za/motoring-news/5-most-affordable-evs-in-south-africa-2026/343038/",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-chery-tiggo-cross-csh-comfort",
+    "make": "Chery",
+    "model": "Tiggo Cross CSH Comfort",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "HEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 439900,
+        "currency": "ZAR",
+        "url": "https://www.citizen.co.za/motoring/jaecoo-j5-shs-primed-for-hybrid-warfare/",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-byd-atto-2-dm-i-comfort",
+    "make": "BYD",
+    "model": "Atto 2 DM-i Comfort",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 449900,
+        "currency": "ZAR",
+        "url": "https://www.cars.co.za/motoring-news/byd-atto-2-dm-i-2026-price-specs/348616/",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-jaecoo-j5-shs",
+    "make": "Jaecoo",
+    "model": "J5 SHS",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "HEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 459900,
+        "currency": "ZAR",
+        "url": "https://www.citizen.co.za/motoring/jaecoo-j5-shs-primed-for-hybrid-warfare/",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-chery-tiggo-cross-csh-elite",
+    "make": "Chery",
+    "model": "Tiggo Cross CSH Elite",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "HEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 469900,
+        "currency": "ZAR",
+        "url": "https://www.citizen.co.za/motoring/jaecoo-j5-shs-primed-for-hybrid-warfare/",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-omoda-c5-shs",
+    "make": "Omoda",
+    "model": "C5 SHS",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "HEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 469900,
+        "currency": "ZAR",
+        "url": "https://www.autotrader.co.za/cars/news-and-advice/buying-a-car/new-chinese-cars-under-r500k-in-south-africa-the-mid-year-2026-wrap/17188",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-byd-atto-2-dm-i-dynamic",
+    "make": "BYD",
+    "model": "Atto 2 DM-i Dynamic",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 489900,
+        "currency": "ZAR",
+        "url": "https://www.cars.co.za/motoring-news/byd-atto-2-dm-i-2026-price-specs/348616/",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-byd-sealion-5",
+    "make": "BYD",
+    "model": "Sealion 5",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 512900,
+        "currency": "ZAR",
+        "url": "https://topauto.co.za/car-prices/BYD/76",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-byd-dolphin",
+    "make": "BYD",
+    "model": "Dolphin",
+    "trim": "",
+    "year": 2026,
+    "type": "Hatchback",
+    "fuel": "Electric",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 605900,
+        "currency": "ZAR",
+        "url": "https://vehiclesa.co.za/brands/byd",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-chery-tiggo-7-csh-phev-plus",
+    "make": "Chery",
+    "model": "Tiggo 7 CSH PHEV Plus",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 619900,
+        "currency": "ZAR",
+        "url": "https://www.cars.co.za/motoring-news/Chery-Tiggo-7-CSH-PHEV-2025-Price-Specs/297401/",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-byd-sealion-6",
+    "make": "BYD",
+    "model": "Sealion 6",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 641900,
+        "currency": "ZAR",
+        "url": "https://topauto.co.za/car-prices/BYD/76",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-chery-tiggo-7-csh-phev-ultra",
+    "make": "Chery",
+    "model": "Tiggo 7 CSH PHEV Ultra",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 679900,
+        "currency": "ZAR",
+        "url": "https://www.cars.co.za/motoring-news/Chery-Tiggo-7-CSH-PHEV-2025-Price-Specs/297401/",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-omoda-c7-shs-phev",
+    "make": "Omoda",
+    "model": "C7 SHS PHEV",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 689900,
+        "currency": "ZAR",
+        "url": "https://www.cars.co.za/motoring-news/omoda-c7-2025-price-specs/325354/",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-jaecoo-j7-shs",
+    "make": "Jaecoo",
+    "model": "J7 SHS",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 689900,
+        "currency": "ZAR",
+        "url": "https://topauto.co.za/?p=138658",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-chery-tiggo-8-csh",
+    "make": "Chery",
+    "model": "Tiggo 8 CSH",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 729900,
+        "currency": "ZAR",
+        "url": "https://topauto.co.za/?p=138658",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-byd-atto-3-extended-range",
+    "make": "BYD",
+    "model": "Atto 3 Extended Range",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "Electric",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 746900,
+        "currency": "ZAR",
+        "url": "https://bbgroup.co.za/byd/product/atto-3/",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-gwm-haval-h6-gt-phev",
+    "make": "GWM",
+    "model": "Haval H6 GT PHEV",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 799900,
+        "currency": "ZAR",
+        "url": "https://topauto.co.za/?p=138658",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-chery-tiggo-9-csh",
+    "make": "Chery",
+    "model": "Tiggo 9 CSH",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 839900,
+        "currency": "ZAR",
+        "url": "https://topauto.co.za/?p=138658",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-byd-shark-6",
+    "make": "BYD",
+    "model": "Shark 6",
+    "trim": "",
+    "year": 2026,
+    "type": "Pickup",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 999900,
+        "currency": "ZAR",
+        "url": "https://bbgroup.co.za/byd/product/atto-3/",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-omoda-c9-phev-explore",
+    "make": "Omoda",
+    "model": "C9 PHEV Explore",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 999900,
+        "currency": "ZAR",
+        "url": "https://topauto.co.za/?p=138658",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-byd-seal",
+    "make": "BYD",
+    "model": "Seal",
+    "trim": "",
+    "year": 2026,
+    "type": "Sedan",
+    "fuel": "Electric",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 1017900,
+        "currency": "ZAR",
+        "url": "https://vehiclesa.co.za/brands/byd",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-byd-atto-8",
+    "make": "BYD",
+    "model": "Atto 8",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "PHEV",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 1064900,
+        "currency": "ZAR",
+        "url": "https://vehiclesa.co.za/brands/byd",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  },
+  {
+    "id": "za-byd-sealion-7",
+    "make": "BYD",
+    "model": "Sealion 7",
+    "trim": "",
+    "year": 2026,
+    "type": "SUV",
+    "fuel": "Electric",
+    "kw": 0,
+    "seats": 0,
+    "battery_kwh": 0,
+    "range_km": 0,
+    "range_cycle": "",
+    "dc_kw": 0,
+    "markets": [
+      "ZA"
+    ],
+    "prices": {
+      "ZA": {
+        "price": 1114900,
+        "currency": "ZAR",
+        "url": "https://vehiclesa.co.za/brands/byd",
+        "checked": "2026-11-17"
+      }
+    },
+    "source": "manual"
+  }
+]
